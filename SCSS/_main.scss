@@ -1,0 +1,372 @@
+/*MOBILE FIRST*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: $main-font;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: $main-color-black;
+    color: $main-color-white;
+    width: 100%;
+    height: 100vh;
+}
+
+/*__________________INDEX____________________*/
+.mainInicio {
+    display: flex;
+    flex-direction: column;
+}
+
+.home {
+    margin-bottom: 5rem;
+}
+
+.cobraMainTitle {
+    font-size: 48px;
+    color: $main-color-green;
+    font-weight: 900;
+    text-align: center;
+}
+
+.homeLogo {
+    width: 320px;
+    height: 320px;
+}
+
+.swipeUp {
+    width: 50px;
+    height: 50px;
+}
+
+.banners {
+    height: 503px;
+    width: 19.438rem;
+    border-radius: 10px;
+}
+
+.bannerContainerMobile {
+    height: 103.625rem;
+    background-image: url("../img/home-Img/home-mobile-bg.svg");
+}
+
+.bannerContainerDesktop {
+    display: none;
+}
+
+.inicioSecCobraClub {
+    background-image: url('../img/home-Img/banner-CobraClub.png');
+}
+.inicioSecProductos {
+    background-image: url('../img/home-Img/banner-Collections.png');
+}
+.inicioSecCrypto {
+    background-image: url('../img/home-Img/banner-crypto.png');
+}
+
+/*__________________pag COBRA CLUB____________________*/
+.CCmain {
+    overflow: hidden;
+}
+
+#click {
+    display: none;
+}
+
+#click:checked ~ .mute {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mute {
+    position: absolute;
+    top: 0%;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.audioWaves {
+    background-image: url("../img/audioWaves.svg");
+    z-index: -1;
+    width: 5rem;
+    height: 3.125rem;
+}
+
+.gradientSubtitle {
+    background: -webkit-linear-gradient(315deg, #f2cf43 0%, #19a186 74%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.infoBenefits {
+    margin-top: 20px;
+    margin-left: 3px;
+    width: 50vw;
+    height: inherit;
+    padding-top: 5vw;
+}
+
+.bgInfoBenefits {
+    background-image: url("../img/cobraClub-Img/bgBenefits.svg");
+    width: 100%;
+    height: 100vw;
+    background-size: cover;
+}
+
+.benHeading {
+    font-size: 14px;
+}
+
+.listBenefits {
+    height: 60%;
+    text-align: center;
+    color: $main-color-green;
+    font-size: 14px;
+}
+
+.benDisclaimer {
+    font-size: 2vw;
+}
+
+.pricingBanner {
+    background-image: url("../img/cobraClub-Img/pricing-bg.jpg");
+    background-size: cover;
+    width: 100%;
+}
+
+.cobraClubCards {
+    color: $main-color-black;
+}
+
+.CCinvestor {
+    background-color: $main-color-green;
+}
+
+
+.nftText {
+    font-size: 48px;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+.nftsContainer {
+    background-image: url("../img/cobraClub-Img/bgNfts.svg");
+    
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(1fr, 5);
+    margin-bottom: 50px;
+}
+
+.nftsContainer div {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    margin: 27px 0px;
+}
+
+/*__________________pag PRODUCTOS____________________*/
+.gridDestacados {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    text-align: center;
+    color: $main-color-black;
+    background-image: url("../img/GreenAesthetic/greenBunnyMod.jpg");
+    /*height: 100vh;*/
+}
+
+.gridDestacados img {
+    width: 9.375rem;
+    height: 11.25rem;
+}
+
+.destacado1 {
+    background-position: right;
+    background-image: url("../img/collections-Img/products-destacado-right.svg");
+}
+
+.destacado2 {
+    background-position: left;
+    background-image: url("../img/collections-Img/products-destacado-left.svg");
+}
+
+.destacado3 {
+    background-position: right;
+    background-image: url("../img/collections-Img/products-destacado-right.svg");
+}
+
+.productosContainer {
+    background-image: url("../img/collections-Img/all-products-bg.svg");
+    color: $main-color-black;
+    background-size: cover;
+}
+
+.productosContent {
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+}
+
+.productosContent div {
+    padding: 20px 0px;
+}
+
+.galeriaProductos img {
+    width: 9.375rem;
+    height: 9.375rem;
+    margin: 5px 5px;
+    border-radius: 10px;
+}
+
+.membersOnly {
+    width: 80%;
+}
+/*__________________pag TALLES____________________*/
+
+.sizingText {
+    height: 5.625rem;
+    background-image: url("../img/sizings-Img/SizingTextBg.svg");
+}
+
+.sizingText p {
+    width: 13.125rem;
+    margin: auto;
+}
+
+.gridTalles {
+    margin-top: 20px;
+    margin-right: 1%;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(4, 50px);
+}
+
+.gridTalles div {
+    border: solid 1px $main-color-white;
+    text-align: center;
+}
+
+.tableTitle {
+    color: $main-color-green;
+}
+
+/*__________________pag CRYPTO____________________*/
+.secCryptoSwap {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.cSwap {
+    height: 31.25rem;
+    width: 21.875rem;
+}
+
+.infoCrypto {
+    width: 80vw;
+    text-align: center;
+    border: solid 3px $main-color-green;
+    border-style: dashed;
+    margin: 20px 0px 20px 0px;
+}
+/*__________________pag CONTACTO____________________*/
+.contenidoContacto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.subtContact {
+    margin: 30px;
+    text-align: center;
+}
+
+.contactDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.contactSubtitle {
+    font-size: 22px;
+    margin-bottom: 30px
+}
+
+.contactForm input {
+    height: 2.188rem;
+    width: 18.75rem;
+}
+
+.contactForm * {
+    margin: 0.5rem 0rem;
+}
+
+.contactForm select {
+    height: 2.188rem;
+    width: 12.5rem;
+}
+
+.contactDiv span {
+    background-color: $main-color-green;
+    color: $color-muted-black;
+}
+
+.formLetter {
+    font-family: $main-font;
+    font-weight: 600;
+}
+
+.parrafoDispo {
+    margin: 0px 30px 30px 30px;
+    width: 70vw;
+    text-align: center;
+}
+
+.staff {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.animate__tada {
+    animation-name: miFoto;
+}
+
+.staffName {
+    margin-bottom: 20px;
+}
+
+/*-------SINTAXIS scss---------*/
+@mixin decoration ($underline, $bold) {
+    text-decoration: $underline;
+    font-weight: $bold;
+}
+
+@for $i from 1 through 6 {
+    .sintaxisEj1 h#{$i} {
+        font-size: 5rem / $i;
+        @include decoration(underline, bold)
+    }
+}
+
+$VectorColores: (
+    1: #f94144,
+    2: #f8961e,
+    3: #f9c74f,
+    4: #90be6d,
+    5: #43aa8b,
+    6: #577590,
+);
+
+@each $j, $color in $VectorColores {
+    .sintaxisEj1 h#{$j} {
+        color: $color;
+    }
+}
+

@@ -1,0 +1,17 @@
+/*______GENERAL_______*/
+@import "variables";
+@import "atoms";
+@import "BSedits";
+@import "main";
+@import "text";
+@import "footer";
+
+/*______@media tablet_______*/
+@import "tablet";
+
+
+/*______@media dektop_______*/
+@import "desktop";
+@import "desktopSidebar";
+@import "desktopFooter";
+

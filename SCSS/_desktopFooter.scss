@@ -1,0 +1,15 @@
+@media (min-width: 1024px){
+    /*______________________FOOTER__________________________*/
+    .footerSocials img {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .animate__rubberBand {
+        animation-name: fsocials;
+    }
+    
+    .footerSocials img:hover {
+        animation: fsocials;
+    }
+}

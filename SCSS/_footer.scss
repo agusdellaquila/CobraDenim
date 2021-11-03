@@ -1,0 +1,52 @@
+/*______________________FOOTER__________________________*/
+footer {
+    color: $main-color-white;
+    height: 55vh;
+}
+
+footer p {
+    text-align: center;
+}
+
+.contenedorFoot {
+    display: flex;
+}
+
+.footerSocials {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.footerSocials a {
+    text-decoration: none;
+    margin-top: 2.80vh;
+}
+.footerSocials img {
+    width: 2.813rem;
+    height: 2.813rem;
+}
+
+.btnTOP {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.btnTOP a {
+    text-decoration: none;
+    font-style: normal;
+}
+.btnTOP span {
+    border: 2px solid $main-color-white;
+    padding: 2px;
+}
+
+.news p {
+    background-color: $main-color-green;
+    display: inline-block;
+    color: $main-color-greenish-white;
+}
+
+.newsEmail {
+    font-weight: 600;
+}

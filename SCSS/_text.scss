@@ -1,0 +1,24 @@
+/*____texts____*/
+.noUnderline {
+    text-decoration: none;
+}
+
+.textoVerde {
+    color: $main-color-green;
+}
+
+.subrayadoVerde {
+    text-decoration: underline;
+    text-decoration-color: $main-color-green;
+}
+
+.subtitulo {
+    color: $main-color-white;
+    font-weight: 600;
+    font-size: 42px;
+}
+
+.h1SecondaryPages {
+    margin: 0px;
+    padding: 0px;
+}

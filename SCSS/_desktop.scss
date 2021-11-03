@@ -1,0 +1,178 @@
+@media (min-width: 1024px){
+    .mobileHidden {
+        display: inherit;
+    }
+
+    .desktopHidden {
+        display: none;
+    }
+
+    /*__________________MOVER CONTENIDOS____________________*/
+    .movContenidoDerecha {
+        margin-left: 14vw; /*13.02vw*/
+    }
+
+    /*__________________header____________________*/
+    .checkoutBag {
+        margin-left: 20px;
+    }
+
+    /*__________________COMUN EN TODA PAG____________________*/
+    .subtitulo {
+        font-size: 32px;
+    }
+
+    /*__________________INDEX____________________*/
+
+    .swipeUp {
+        display: none;
+    }
+    
+    .mainInicio {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .home {
+        margin-bottom: 0rem;
+    }
+
+    .bannerContainerMobile {
+        display: none;
+    }
+
+    .bannerContainerDesktop {
+        display: flex;
+    }
+
+    .bannerContainerDesktop h2 {
+        font-size: 2.5vw;
+    }
+
+    .banners {
+        height: 37.5rem; /*89.88vh*/
+        width: 21.4vw; /*20.90vw*/
+    }
+    /*__________________pag COBRA CLUB____________________*/
+    .infoBenefits {
+        width: 44vw;
+    }
+    
+    .benHeading {
+        font-size: 32px;
+    }
+
+    .listBenefits {
+        font-size: 24px;
+    }
+
+    .listBenefits img {
+        width: 50px;
+    }
+
+    .sectionPricing {
+        display: flex;
+    }
+
+    .nftsContainer {
+        background-image: url("../img/cobraClub-Img/bgNftsDesktop.svg");
+        height: 16.25rem;
+        width: 90rem;
+    }
+
+    .nftsContainer div {
+        margin-top: 30px;
+    }
+
+    .nftsContainer img {
+        width: 12.5rem;
+        height: 12.5rem;
+    }
+
+    /*__________________pag PRODUCTOS____________________*/
+    .destacado1 {
+        background-image: url("../img/collections-Img/products-destacado-right.svg");
+    }
+    
+    .destacado2 {
+        background-image: url("../img/collections-Img/products-destacado-left.svg");
+    }
+    
+    .destacado3 {
+        background-image: url("../img/collections-Img/products-destacado-right.svg");
+    }
+    
+    
+    .productosContainer {
+        background-image: url("../img/collections-Img/all-products-bg-desktop.svg");
+    }
+
+    .productosContent {
+        margin-left: 3rem;
+        margin-top: 2rem;
+    }
+
+    .gridDestacados img {
+        width: 14.375rem;
+        height: 15.625rem;
+        
+    }
+
+    .galeriaProductos img {
+        width: 200px;
+    height: 250px;
+        margin: 5px 5px;
+    }
+
+    .galeriaProductos img:hover {
+        transform: scale(1.05, 1.05);
+        opacity: 60%;
+    }
+    
+    /*__________________pag TALLES____________________*/
+
+    /*__________________pag CRYPTO____________________*/
+    .secCryptoSwap {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    .infoCrypto {
+        width: 26.25rem;
+    }
+    /*__________________pag CONTACTO____________________*/
+
+    .contenidoContacto {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 100%;
+    }
+
+
+    .contactFila2 .staff {
+        margin-top: 10vh;
+    }
+    
+    .parrafoDispo {
+        width: 20vw;
+    }
+
+    .formButton:hover {
+        background-color: $main-color-green;
+        opacity: 90%;
+    }
+
+    .staff img:hover {
+        animation: miFoto;
+    }
+}

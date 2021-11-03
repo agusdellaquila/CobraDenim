@@ -1,0 +1,38 @@
+/*_____________________Atoms___________________________*/
+
+/*___visibility__*/
+.mobileHidden {
+    display: none;
+}
+
+.desktopHidden {
+    display: inherit;
+}
+
+/*____tools____*/
+.imgContain {
+    background-size: contain;
+}
+
+.noBackRepeat {
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.hiddenOverflow {
+    overflow: hidden;
+}
+
+.lineaDivision {
+    height: 3px;
+    width: 100%;
+    background-color: $main-color-green;
+}
+
+/*____spacing____*/
+.centrado {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
