@@ -58,6 +58,11 @@
         height: 37.5rem; /*89.88vh*/
         width: 21.4vw; /*20.90vw*/
     }
+
+    .banners:hover {
+        transform: scale(1.05, 1.05);
+        opacity: 80%;
+    }
     /*__________________pag COBRA CLUB____________________*/
     .infoBenefits {
         width: 44vw;
@@ -120,7 +125,11 @@
     .gridDestacados img {
         width: 14.375rem;
         height: 15.625rem;
-        
+    }
+
+    .gridDestacados img:hover {
+        transform: scale(1.05, 1.05);
+        opacity: 80%;
     }
 
     .galeriaProductos img {
@@ -131,7 +140,7 @@
 
     .galeriaProductos img:hover {
         transform: scale(1.05, 1.05);
-        opacity: 60%;
+        opacity: 80%;
     }
     
     /*__________________pag TALLES____________________*/

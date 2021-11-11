@@ -110,6 +110,11 @@ html {
   opacity: 1;
   visibility: visible; }
 
+.boton-mute {
+  position: relative;
+  right: 31%;
+  margin-top: 0.7rem; }
+
 .mute {
   position: absolute;
   top: 0%;
@@ -569,6 +574,9 @@ footer p {
     /*89.88vh*/
     width: 21.4vw;
     /*20.90vw*/ }
+  .banners:hover {
+    transform: scale(1.05, 1.05);
+    opacity: 80%; }
   /*__________________pag COBRA CLUB____________________*/
   .infoBenefits {
     width: 44vw; }
@@ -604,13 +612,16 @@ footer p {
   .gridDestacados img {
     width: 14.375rem;
     height: 15.625rem; }
+  .gridDestacados img:hover {
+    transform: scale(1.05, 1.05);
+    opacity: 80%; }
   .galeriaProductos img {
     width: 200px;
     height: 250px;
     margin: 5px 5px; }
   .galeriaProductos img:hover {
     transform: scale(1.05, 1.05);
-    opacity: 60%; }
+    opacity: 80%; }
   /*__________________pag TALLES____________________*/
   /*__________________pag CRYPTO____________________*/
   .secCryptoSwap {
