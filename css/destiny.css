@@ -147,7 +147,8 @@ html {
   background-size: cover; }
 
 .benHeading {
-  font-size: 14px; }
+  font-size: 14px;
+  margin-top: -30px; }
 
 .listBenefits {
   height: 60%;
