@@ -2467,8 +2467,8 @@ textarea.form-control-lg {
 }
 
 .form-check-input {
-  width: 1em;
-  height: 1em;
+  width: 1rem !important;
+  height: 1em !important;
   margin-top: 0.25em;
   vertical-align: top;
   background-color: #fff;
@@ -3013,7 +3013,7 @@ textarea.form-control-lg {
   border: solid 3px #CAE500;
 }
 .btn-primary:hover {
-  color: #CAE500;
+  color: #656660;
   background-color: #FCFEF1;
   border-color: #0ba89f;
 }

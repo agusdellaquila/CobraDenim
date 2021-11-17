@@ -54,7 +54,8 @@ html {
   background-color: #000;
   color: #fff;
   width: 100%;
-  height: 100vh; }
+  height: 100vh;
+  scroll-behavior: smooth; }
 
 /*__________________INDEX____________________*/
 .mainInicio {
@@ -77,6 +78,11 @@ html {
 .swipeUp {
   width: 50px;
   height: 50px; }
+
+.idBanner {
+  height: 503px;
+  width: 19.438rem;
+  border-radius: 10px; }
 
 .banners {
   height: 503px;
@@ -225,6 +231,9 @@ html {
 .productosContent div {
   padding: 20px 0px; }
 
+.galeriaProductos a {
+  text-decoration: none; }
+
 .galeriaProductos img {
   width: 9.375rem;
   height: 9.375rem;
@@ -297,9 +306,21 @@ html {
   font-size: 22px;
   margin-bottom: 30px; }
 
-.contactForm input {
-  height: 2.188rem;
-  width: 18.75rem; }
+.contactBoxes {
+  height: 2rem;
+  width: 300px; }
+
+.contactTextarea {
+  width: 80%;
+  height: 200px; }
+
+.sendBtn {
+  width: 80%;
+  height: 3rem; }
+
+.clearBtn {
+  width: 40%;
+  height: 3rem; }
 
 .contactForm * {
   margin: 0.5rem 0rem; }
@@ -442,8 +463,17 @@ footer p {
   display: inline-block;
   color: #FCFEF1; }
 
+.newsletter form {
+  width: 80%; }
+
 .newsEmail {
   font-weight: 600; }
+
+.footerStory img {
+  width: 100%; }
+
+.footerTxt {
+  padding-top: 50px; }
 
 /*______@media tablet_______*/
 @media (min-width: 576px) and (max-width: 1023px) {
@@ -561,7 +591,8 @@ footer p {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    align-items: center; }
+    align-items: center;
+    overflow: hidden; }
   .home {
     margin-bottom: 0rem; }
   .bannerContainerMobile {
@@ -570,14 +601,14 @@ footer p {
     display: flex; }
   .bannerContainerDesktop h2 {
     font-size: 2.5vw; }
+  .idBanner {
+    height: 37.5rem;
+    width: 21.4vw; }
   .banners {
     height: 37.5rem;
-    /*89.88vh*/
-    width: 21.4vw;
-    /*20.90vw*/ }
+    width: 21.4vw; }
   .banners:hover {
-    transform: scale(1.05, 1.05);
-    opacity: 80%; }
+    transform: scale(1.05, 1.05); }
   /*__________________pag COBRA CLUB____________________*/
   .infoBenefits {
     width: 44vw; }
@@ -614,15 +645,13 @@ footer p {
     width: 14.375rem;
     height: 15.625rem; }
   .gridDestacados img:hover {
-    transform: scale(1.05, 1.05);
-    opacity: 80%; }
+    transform: scale(1.05, 1.05); }
   .galeriaProductos img {
     width: 200px;
     height: 250px;
     margin: 5px 5px; }
   .galeriaProductos img:hover {
-    transform: scale(1.05, 1.05);
-    opacity: 80%; }
+    transform: scale(1.05, 1.05); }
   /*__________________pag TALLES____________________*/
   /*__________________pag CRYPTO____________________*/
   .secCryptoSwap {
@@ -716,4 +745,11 @@ footer p {
   .animate__rubberBand {
     animation-name: fsocials; }
   .footerSocials img:hover {
-    animation: fsocials; } }
+    animation: fsocials; }
+  .footerStory img {
+    width: 200px; }
+  .footerTxt {
+    font-size: 14px;
+    text-align: center; }
+  .footerParrafo {
+    margin: 0px 100px; } }

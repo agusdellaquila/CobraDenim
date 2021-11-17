@@ -36,6 +36,7 @@
         flex-direction: row;
         justify-content: flex-end;
         align-items: center;
+        overflow: hidden;
     }
 
     .home {
@@ -54,14 +55,19 @@
         font-size: 2.5vw;
     }
 
+    .idBanner {
+        height: 37.5rem;
+        width: 21.4vw;
+    }
+
+
     .banners {
-        height: 37.5rem; /*89.88vh*/
-        width: 21.4vw; /*20.90vw*/
+        height: 37.5rem;
+        width: 21.4vw;
     }
 
     .banners:hover {
         transform: scale(1.05, 1.05);
-        opacity: 80%;
     }
     /*__________________pag COBRA CLUB____________________*/
     .infoBenefits {
@@ -129,18 +135,16 @@
 
     .gridDestacados img:hover {
         transform: scale(1.05, 1.05);
-        opacity: 80%;
     }
 
     .galeriaProductos img {
         width: 200px;
-    height: 250px;
+        height: 250px;
         margin: 5px 5px;
     }
 
     .galeriaProductos img:hover {
         transform: scale(1.05, 1.05);
-        opacity: 80%;
     }
     
     /*__________________pag TALLES____________________*/

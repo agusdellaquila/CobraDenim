@@ -12,6 +12,7 @@ html {
     color: $main-color-white;
     width: 100%;
     height: 100vh;
+    scroll-behavior: smooth;
 }
 
 /*__________________INDEX____________________*/
@@ -39,6 +40,12 @@ html {
 .swipeUp {
     width: 50px;
     height: 50px;
+}
+
+.idBanner {
+    height: 503px;
+    width: 19.438rem;
+    border-radius: 10px;
 }
 
 .banners {
@@ -220,6 +227,10 @@ html {
     padding: 20px 0px;
 }
 
+.galeriaProductos a {
+    text-decoration: none;
+}
+
 .galeriaProductos img {
     width: 9.375rem;
     height: 9.375rem;
@@ -305,9 +316,24 @@ html {
     margin-bottom: 30px
 }
 
-.contactForm input {
-    height: 2.188rem;
-    width: 18.75rem;
+.contactBoxes {
+    height: 2rem;
+    width: 300px;
+}
+
+.contactTextarea {
+    width: 80%;
+    height: 200px;
+}
+
+.sendBtn {
+    width: 80%;
+    height: 3rem;
+}
+
+.clearBtn {
+    width: 40%;
+    height: 3rem;
 }
 
 .contactForm * {
