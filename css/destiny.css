@@ -134,7 +134,7 @@ html {
   height: 3.125rem; }
 
 .gradientSubtitle {
-  background: -webkit-linear-gradient(315deg, #f2cf43 0%, #19a186 74%);
+  background-image: -webkit-linear-gradient(315deg, #f2cf43 0%, #19a186 74%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
