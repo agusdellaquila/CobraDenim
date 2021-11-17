@@ -137,7 +137,9 @@ html {
   background: -webkit-linear-gradient(315deg, #f2cf43 0%, #19a186 74%);
   background-clip: text;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; }
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  left: 0; }
 
 .infoBenefits {
   margin-top: 20px;
