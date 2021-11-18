@@ -134,13 +134,14 @@ html {
   height: 3.125rem; }
 
 .gradientSubtitle {
+  /* can be treated like a fallback */
+  background-color: #CAE500;
+  /* will be "on top", if browser supports it */
   background-image: -webkit-gradient(linear, left top, right top, from(#f2cf43 0%), to(#19a186 74%));
   background-image: -webkit-linear-gradient(315deg, #f2cf43 0%, #19a186 74%);
   background-clip: text;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  position: relative;
-  left: 0; }
+  -webkit-text-fill-color: transparent; }
 
 .infoBenefits {
   margin-top: 20px;
