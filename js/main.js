@@ -15,6 +15,18 @@ function applyDues(total, duePercentaje , cantDues) {
     return (total/cantDues)
 }
 
+function enCarrito(array) {
+    //retorna un nuevo array con la informacion booleanda de si los items se encuentran en el carro o no
+    let salida = array.map((item => item.estadoEnCarro));
+    return salida
+}
+
+function filtrado(array) {
+    // filtra el carro segun si hay mas de 3 prendas del mismo item en el carro
+    let salida = array.filter((item) => (item.stockEnCarro > 3));
+    return salida
+}
+
 //objetos
 class Prenda {
     constructor(nroItem, precio, stockTotal, stockEnCarro, estadoEnCarro, dineroTotalEnCarro) {
@@ -74,7 +86,7 @@ while (!flag) {
 
         if ((carrito[0].stockTotal > 0) && (carrito[0].stockTotal >= CantidadAgregarAlCarro)) {
             carrito[0].stockTotal = carrito[0].stockTotal - CantidadAgregarAlCarro;
-            carrito[0].enCarro = true;
+            carrito[0].estadoEnCarro = true;
             carrito[0].stockEnCarro = carrito[0].stockEnCarro + CantidadAgregarAlCarro;
             // carrito[0].dineroTotalEnCarro = carrito[0].precio * carrito[0].stockEnCarro;
         } 
@@ -84,7 +96,7 @@ while (!flag) {
     } else if (agregarAlCarro == 2) {
         if ((carrito[1].stockTotal > 1) && (carrito[1].stockTotal >= CantidadAgregarAlCarro)) {
             carrito[1].stockTotal = carrito[1].stockTotal - CantidadAgregarAlCarro;
-            carrito[1].enCarro = true;
+            carrito[1].estadoEnCarro = true;
             carrito[1].stockEnCarro = carrito[1].stockEnCarro + CantidadAgregarAlCarro;
             // carrito[1].dineroTotalEnCarro = carrito[1].precio * carrito[1].stockEnCarro;
         } 
@@ -94,7 +106,7 @@ while (!flag) {
     } else if (agregarAlCarro == 3) {
         if ((carrito[2].stockTotal > 2) && (carrito[2].stockTotal >= CantidadAgregarAlCarro)) {
             carrito[2].stockTotal = carrito[2].stockTotal - CantidadAgregarAlCarro;
-            carrito[2].enCarro = true;
+            carrito[2].estadoEnCarro = true;
             carrito[2].stockEnCarro = carrito[2].stockEnCarro + CantidadAgregarAlCarro;
             // carrito[2].dineroTotalEnCarro = carrito[2].precio * carrito[2].stockEnCarro;
         }
@@ -105,8 +117,8 @@ while (!flag) {
         console.log('EROrr');
     }
 
-    let aux = prompt('Ingrese un 1 para SALIR, Ingrese cualquier tecla para seguir agregando items al carrito.');
-    if (aux == '1') {
+    let aux = prompt('Ingrese un 0 para SALIR, Ingrese cualquier tecla para seguir agregando items al carrito.');
+    if (aux == '0') {
         flag = true;
     }
 }
@@ -119,8 +131,6 @@ for (let i of carrito) {
     totalCarrito = totalCarrito + vtc;
 } 
 console.log('Su total del carrito es de ' + totalCarrito);
-
-
 
 valorDescuento = 15; //15% con el codigo coder
 palabraDescuento = prompt('Ingrese el codigo de descuento: ');
@@ -150,3 +160,12 @@ if (palabraCuotas == 'si') {
 } else {
     console.log('No eligio cuotas, asi que su total permanece en '+ totalCarrito);
 }
+
+//metodo de map, saca un array con estado de items en carro
+let itemsEnCarro = enCarrito(carrito);
+console.log(itemsEnCarro);
+
+//metodo de find, buscar si hay mas de 3 prendas del mismo item en el carro 
+let carroFiltrado = filtrado(carrito);
+console.log('estos son las prendas las cuales tiene mas de 3 en el carro: ');
+console.log(carroFiltrado)
