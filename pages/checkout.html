@@ -159,49 +159,45 @@
             <div class="col-md-5 col-lg-4 order-md-last">
                 <h4 class="d-flex justify-content-between align-items-center mb-3">
                 <span class="text-primary">Your cart</span>
-                <span class="badge bg-primary rounded-pill">3</span>
+                <span id="numOfItemsInCart" class="badge bg-primary rounded-pill">3</span>
                 </h4>
                 <ul class="list-group mb-3">
-                <li class="list-group-item d-flex justify-content-between lh-sm">
+                <li id="cart-prodList" class="list-group-item d-flex justify-content-between lh-sm">
                     <div>
-                    <h6 class="my-0">Product name</h6>
-                    <small class="text-muted">Brief description</small>
+                    <h6 id="cartProduct1" class="my-0">Product name</h6>
+                    <small id="cartProductAmount1" class="text-muted"></small>
                     </div>
-                    <span class="text-muted">$12</span>
+                    <span id='cartPrice1' class="text-muted"></span>
                 </li>
-                <li class="list-group-item d-flex justify-content-between lh-sm">
-                    <div>
-                    <h6 class="my-0">Second product</h6>
-                    <small class="text-muted">Brief description</small>
-                    </div>
-                    <span class="text-muted">$8</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between lh-sm">
-                    <div>
-                    <h6 class="my-0">Third item</h6>
-                    <small class="text-muted">Brief description</small>
-                    </div>
-                    <span class="text-muted">$5</span>
-                </li>
+                <!---->
                 <li class="list-group-item d-flex justify-content-between bg-light">
                     <div class="text-success">
                     <h6 class="my-0">Promo code</h6>
                     <small>EXAMPLECODE</small>
                     </div>
-                    <span class="text-success">−$5</span>
+                    <span class="text-success"></span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between">
                     <span>Total (USD)</span>
-                    <strong>$20</strong>
+                    <strong id='cartTotalPrice'></strong>
                 </li>
                 </ul>
         
                 <form class="card p-2">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Promo code">
+                    <input id="promocodeInput" type="text" class="form-control" placeholder="Promo code">
                     <button type="submit" class="btn btn-secondary">Redeem</button>
                 </div>
                 </form>
+
+                <!-- Input para la entrega del DOM -->
+                <div>
+                    <h6 class="mt-5 textoVerde">Ingrese el id del elemento que quiera agregar al carro</p>
+                    <input id="ingresoDeId" type="text" placeholder="id">
+                    <button type="button" class="btn btn-secondary" onclick="captureInput()">AddToCart</button>
+                    <p>IDs: 1001 - 1002 - 1003 </p>
+                </div>
+                <!--   -->
             </div>
             <div class="col-md-7 col-lg-8">
                 <h4 class="mb-3 textoVerde">Billing address</h4>
@@ -431,5 +427,7 @@
     <script src="../bootstrap/js/bootstrap.min.js"></script>
     <script src="/docs/5.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="form-validation.js"></script>
+    <!--js script-->
+    <script src="../js/main.js"></script>
     </body>
 </html>

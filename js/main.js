@@ -1,4 +1,157 @@
+//objetos
+class Prenda {
+    constructor(id, nombrePrenda, precioPrenda, stockTotalDePrenda) {
+        //propiedades del objeto
+        this.id = id;
+        this.nombrePrenda = nombrePrenda;
+        this.precioPrenda = precioPrenda;
+        this.stockTotalDePrenda = stockTotalDePrenda;
+    }
+}
+
+class PrendaEnCarro {
+    constructor(id, nombrePrenda, precioPrenda, stockDePrendaEnCarro) {
+        //propiedades del objeto
+        this.id = id;
+        this.nombrePrenda = nombrePrenda;
+        this.precioPrenda = precioPrenda;
+        this.stockDePrendaEnCarro = stockDePrendaEnCarro;
+    }
+}
+
+/* Creo un array con los productos, como si fuera un .json */
+let IngresoProductos = [];
+
+IngresoProductos[0] = {id: '1001', nombrePrenda: 'Cobra Venom', precioPrenda: 8000, stockTotalDePrenda: 10};
+IngresoProductos[1] = {id: '1002', nombrePrenda: 'Brown Denim teddy', precioPrenda: 4800, stockTotalDePrenda: 150};
+IngresoProductos[2] = {id: '1003', nombrePrenda: 'Green Denim viper', precioPrenda: 4500, stockTotalDePrenda: 550};
+IngresoProductos[3] = {id: '4', nombrePrenda: 'D1srupted nr1', precioPrenda: 2700, stockTotalDePrenda: 200};
+IngresoProductos[4] = {id: '5', nombrePrenda: 'D1srupted nr2', precioPrenda: 3800, stockTotalDePrenda: 180};
+IngresoProductos[5] = {id: '6', nombrePrenda: 'D1srupted nr3', precioPrenda: 3100, stockTotalDePrenda: 350};
+IngresoProductos[6] = {id: '7', nombrePrenda: 'Blue Denim lake', precioPrenda: 2750, stockTotalDePrenda: 60};
+IngresoProductos[7] = {id: '8', nombrePrenda: 'Blue Denim nr2', precioPrenda: 3500, stockTotalDePrenda: 400};
+
+//-------------------declaro array de prendas-------------------------
+let arrayPrendas = [];
+arrayPrendas = IngresoProductos.map((item) => new Prenda(item.id, item.nombrePrenda, item.precioPrenda, item.stockTotalDePrenda));
+
+//-------------------declaro array de carrito-------------------------
+let carrito = [];
+
+// ESTO SE VA A HACER CON EVENTOS, al tocar la img del producto, se agrega al carrito
+
+// let nombreID = captureInput();
+
+let flag = false;
+//ahora las etradas de datos son con prompt pero dejaran de serlo y pasara a ser eventos
+
+let nombreID = prompt('Ingrese ID del item para ingresar al carro (IDs: 1001-1002-1003): ');
+let cantidadEntrante = Number(prompt('Ingrese la cantidad de items que deseea agregar: '));
+
+let prod = findProduct(arrayPrendas, nombreID);
+
+if (prod == undefined) {
+    wrongInput();
+} else {
+    if (checkStock(prod, cantidadEntrante)) {
+        manageStock(prod, cantidadEntrante);
+        addToCart(carrito, prod, cantidadEntrante);
+    } else {
+        noStock();
+    }
+}
+
+//mostrar items del carro
+let productoDelCarro = findProduct(carrito, nombreID);
+showItemOnCart(productoDelCarro);
+
+//precio total del carro
+let cartTotal = totalCartPrice(carrito);
+
+//aplico descuento si es necesario
+let inputPromocode = document.getElementById('promocodeInput').value
+let desc = 35;
+if (inputPromocode == 'venenous') {
+    cartTotal = applyDiscount(cartTotal, desc);
+}
+//muestro el total del carro
+let showTotalPrice = document.getElementById('cartTotalPrice');
+showTotalPrice.innerText = cartTotal;
+
+//BUBBLE cantidad de items en el carro
+document.getElementById('numOfItemsInCart').innerHTML = amountItemsInCart(carrito);
+//---------------------------
+
+
+
 //----------------- Funciones ----------------
+//!!!!!!!!!!!!!!!!!!HACER: btn to cart, agarrar el id del boton y pasarlo como parametro
+
+function captureInput() {
+    let input = document.getElementById('ingresoDeId').value;
+    return input
+}
+
+function findProduct(array, id) {
+    //searches prodcut by id on arrayPrendas and returns the item
+    for (item of array) {
+        if (item.id == id) {
+            return item;
+        }
+    }
+}
+
+function checkStock(item, amount) {
+    //checks if there is stock for the set amount on the given item
+    if (amount <= item.stockTotalDePrenda) {
+        return true
+    }
+}
+
+function manageStock(item, amount) {
+    item.stockTotalDePrenda -= amount;
+}
+
+function noStock() {
+    let showName = document.getElementById('cartProduct1');
+    showName.innerText = 'No hay stock suficiente de este producto';
+}
+
+function wrongInput() {
+    let showName = document.getElementById('cartProduct1');
+    showName.innerText = 'Error al ingresar los datos';
+}
+
+function addToCart(array, item, amount) {
+    array.push(new PrendaEnCarro(item.id, item.nombrePrenda, item.precioPrenda, amount));
+}
+
+function showItemOnCart(item) {
+    let showName = document.getElementById('cartProduct1');
+    let showAmount = document.getElementById('cartProductAmount1');
+    let showPrice = document.getElementById('cartPrice1');
+
+    showName.innerText = item.nombrePrenda;
+    showAmount.innerText = 'x' + item.stockDePrendaEnCarro;
+    showPrice.innerText = item.precioPrenda * item.stockDePrendaEnCarro;
+}
+
+function totalCartPrice(array) {
+    let total;
+    for (item of array) {
+        total = total + (item.precioPrenda * item.stockDePrendaEnCarro);
+    }
+
+    return total
+}
+
+function amountItemsInCart(array) {
+    return array.length
+}
+
+
+
+//masssssssssssssssssssssssssssssssss
 function applyDiscount(total, descuento) {
     total = total - ((total * descuento) / 100);
     return total;
@@ -20,152 +173,3 @@ function enCarrito(array) {
     let salida = array.map((item => item.estadoEnCarro));
     return salida
 }
-
-function filtrado(array) {
-    // filtra el carro segun si hay mas de 3 prendas del mismo item en el carro
-    let salida = array.filter((item) => (item.stockEnCarro > 3));
-    return salida
-}
-
-//objetos
-class Prenda {
-    constructor(nroItem, precio, stockTotal, stockEnCarro, estadoEnCarro, dineroTotalEnCarro) {
-        //propiedades del objeto
-        this.nroItem = nroItem;
-        this.precio = precio;
-        this.stockTotal = stockTotal; 
-        this.stockEnCarro = stockEnCarro;
-        this.estadoEnCarro = estadoEnCarro;
-        this.dineroTotalEnCarro = dineroTotalEnCarro;
-    }
-    mostrar() {
-
-        console.log('El producto ' + this.nroItem + ' tiene un precio de ' + this.precio + ' y un stock de ' + this.stockTotal);
-    }
-    valorDeMercaderia () {
-        let valorTotalDeMercaderia;
-        valorTotalDeMercaderia = this.precio * this.stockTotal;
-        console.log('El valor total invertido en el item ' + this.nroItem + ' es de ' + valorTotalDeMercaderia + '$')
-        return valorTotalDeMercaderia
-    }
-
-    valorDeMercaderiaEnCarro () {
-        this.dineroTotalEnCarro = this.precio * this.stockEnCarro;
-        return this.dineroTotalEnCarro
-    }
-}
-
-
-//-------------------declaraciones-------------------------
-let carrito = [];
-
-let totalCarrito = 0;
-let palabraDescuento = '';
-let palabraCuotas = '';
-let valorDescuento;
-let cantCuotas;
-let porcentajeCuotas = 20;
-let valorDeCuota;
-
-//creacion de objeos
-let item1 = new Prenda(1, 5000, 10, 0, false, 0);
-let item2 = new Prenda(2, 3500, 13, 0, false, 0);
-let item3 = new Prenda(3, 7000, 5, 0, false, 0);
-
-//carga de carro
-carrito.push(item1, item2, item3);
-
-// INTERFAZ EN CONSOLE
-//--------------------incorporacion de objetos---------------------------
-let flag = false;
-while (!flag) {
-    let agregarAlCarro = Number(prompt('Que item quiere agregar al carro? (1-2-3): '))
-    let CantidadAgregarAlCarro = Number(prompt('Que cantidad del item ' + agregarAlCarro + ' quiere agregar? : '))
-
-    if (agregarAlCarro == 1) { //esto dentro de este if se repite 3 veces, podria estar en una funcion que probablemente implemente mas adelante
-
-        if ((carrito[0].stockTotal > 0) && (carrito[0].stockTotal >= CantidadAgregarAlCarro)) {
-            carrito[0].stockTotal = carrito[0].stockTotal - CantidadAgregarAlCarro;
-            carrito[0].estadoEnCarro = true;
-            carrito[0].stockEnCarro = carrito[0].stockEnCarro + CantidadAgregarAlCarro;
-            // carrito[0].dineroTotalEnCarro = carrito[0].precio * carrito[0].stockEnCarro;
-        } 
-        else {
-            console.log('Lo sentimos no queda suficiente stock de este producto');
-        }
-    } else if (agregarAlCarro == 2) {
-        if ((carrito[1].stockTotal > 1) && (carrito[1].stockTotal >= CantidadAgregarAlCarro)) {
-            carrito[1].stockTotal = carrito[1].stockTotal - CantidadAgregarAlCarro;
-            carrito[1].estadoEnCarro = true;
-            carrito[1].stockEnCarro = carrito[1].stockEnCarro + CantidadAgregarAlCarro;
-            // carrito[1].dineroTotalEnCarro = carrito[1].precio * carrito[1].stockEnCarro;
-        } 
-        else {
-            console.log('Lo sentimos no queda suficiente stock de este producto');
-        }
-    } else if (agregarAlCarro == 3) {
-        if ((carrito[2].stockTotal > 2) && (carrito[2].stockTotal >= CantidadAgregarAlCarro)) {
-            carrito[2].stockTotal = carrito[2].stockTotal - CantidadAgregarAlCarro;
-            carrito[2].estadoEnCarro = true;
-            carrito[2].stockEnCarro = carrito[2].stockEnCarro + CantidadAgregarAlCarro;
-            // carrito[2].dineroTotalEnCarro = carrito[2].precio * carrito[2].stockEnCarro;
-        }
-        else {
-            console.log('Lo sentimos no queda suficiente stock de este producto');
-        }
-    } else {
-        console.log('EROrr');
-    }
-
-    let aux = prompt('Ingrese un 0 para SALIR, Ingrese cualquier tecla para seguir agregando items al carrito.');
-    if (aux == '0') {
-        flag = true;
-    }
-}
-
-
-//000000000000000000000000000000000000000000000000000000000000000000
-let vtc;
-for (let i of carrito) {
-    vtc = i.valorDeMercaderiaEnCarro();
-    totalCarrito = totalCarrito + vtc;
-} 
-console.log('Su total del carrito es de ' + totalCarrito);
-
-valorDescuento = 15; //15% con el codigo coder
-palabraDescuento = prompt('Ingrese el codigo de descuento: ');
-
-if (palabraDescuento == 'coder') {
-    totalCarrito = applyDiscount(totalCarrito, valorDescuento)
-    console.log('Su total con descuento incluido es de ' + totalCarrito);
-} else {
-    console.log('Lo sentimos, *' + palabraDescuento + '* no es un codigo de descuento valido :(');
-}
-
-totalCarrito = applyTaxes(totalCarrito);
-
-console.log('Su total con IVA incluido es de ' + totalCarrito);
-
-while ((palabraCuotas != 'si') && (palabraCuotas != 'no')) {
-    palabraCuotas = prompt('Desea pagar en cuotas (con interes 20%)? si/no ');
-    if (palabraCuotas != 'si' && palabraCuotas != 'no') {
-        alert('Ingrese correctamente su respuesta');
-    }
-}
-
-if (palabraCuotas == 'si') {
-    cantCuotas = Number(prompt('Que cantidad de cuotas deseea? elija entre 6 - 12 - 18 '));
-    valorDeCuota = applyDues(totalCarrito, porcentajeCuotas, cantCuotas);
-    console.log('Pagara un total de '+ cantCuotas + ' cuotas de un valor de ' + valorDeCuota + ' cada una.');
-} else {
-    console.log('No eligio cuotas, asi que su total permanece en '+ totalCarrito);
-}
-
-//metodo de map, saca un array con estado de items en carro
-let itemsEnCarro = enCarrito(carrito);
-console.log(itemsEnCarro);
-
-//metodo de find, buscar si hay mas de 3 prendas del mismo item en el carro 
-let carroFiltrado = filtrado(carrito);
-console.log('estos son las prendas las cuales tiene mas de 3 en el carro: ');
-console.log(carroFiltrado)
