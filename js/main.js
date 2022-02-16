@@ -10,7 +10,6 @@ class Prenda {
         this.stockTotalDePrenda = stockTotalDePrenda;
     }
 }
-
 class PrendaEnCarro {
     constructor(id, nombrePrenda, precioPrenda, stockDePrendaEnCarro) {
         //propiedades del objeto
@@ -20,99 +19,72 @@ class PrendaEnCarro {
         this.stockDePrendaEnCarro = stockDePrendaEnCarro;
     }
 }
-
 //-------------------------------------------------------
-//----equivalente temp al .json--------------------------
+//----base de datos(?--------------------------
 //-------------------------------------------------------
 let IngresoProductos = [];
 
-IngresoProductos[0] = {id: '1001', nombrePrenda: 'Cobra Venom', precioPrenda: 8000, stockTotalDePrenda: 10};
-IngresoProductos[1] = {id: '1002', nombrePrenda: 'Brown Denim teddy', precioPrenda: 4800, stockTotalDePrenda: 150};
-IngresoProductos[2] = {id: '1003', nombrePrenda: 'Green Denim viper', precioPrenda: 4500, stockTotalDePrenda: 550};
-IngresoProductos[3] = {id: '4', nombrePrenda: 'D1srupted nr1', precioPrenda: 2700, stockTotalDePrenda: 200};
-IngresoProductos[4] = {id: '5', nombrePrenda: 'D1srupted nr2', precioPrenda: 3800, stockTotalDePrenda: 180};
-IngresoProductos[5] = {id: '6', nombrePrenda: 'D1srupted nr3', precioPrenda: 3100, stockTotalDePrenda: 350};
-IngresoProductos[6] = {id: '7', nombrePrenda: 'Blue Denim lake', precioPrenda: 2750, stockTotalDePrenda: 60};
-IngresoProductos[7] = {id: '8', nombrePrenda: 'Blue Denim nr2', precioPrenda: 3500, stockTotalDePrenda: 400};
-
+IngresoProductos[0] = {id: '1001', nombrePrenda: 'Cobra Venom nr1', precioPrenda: 8000, stockTotalDePrenda: 10};
+IngresoProductos[1] = {id: '1002', nombrePrenda: 'Cobra Venom nr2', precioPrenda: 4800, stockTotalDePrenda: 150};
+IngresoProductos[2] = {id: '1003', nombrePrenda: 'Cobra Venom nr3', precioPrenda: 4500, stockTotalDePrenda: 550};
+IngresoProductos[3] = {id: '2001', nombrePrenda: 'D1srupted nr1', precioPrenda: 2700, stockTotalDePrenda: 200};
+IngresoProductos[4] = {id: '2002', nombrePrenda: 'D1srupted nr2', precioPrenda: 3800, stockTotalDePrenda: 180};
+IngresoProductos[5] = {id: '2003', nombrePrenda: 'D1srupted nr3', precioPrenda: 3100, stockTotalDePrenda: 350};
+IngresoProductos[6] = {id: '3001', nombrePrenda: 'Blue Denim nr1', precioPrenda: 2750, stockTotalDePrenda: 60};
+IngresoProductos[7] = {id: '3002', nombrePrenda: 'Blue Denim nr2', precioPrenda: 3500, stockTotalDePrenda: 400};
 //-------------------------------------------------------
 //-----------declaro array de prendas--------------------
 //-------------------------------------------------------
 let arrayPrendas = [];
 arrayPrendas = IngresoProductos.map((item) => new Prenda(item.id, item.nombrePrenda, item.precioPrenda, item.stockTotalDePrenda));
-
+let arrayStock = JSON.stringify(arrayPrendas)
+localStorage.setItem('arrayStock', arrayStock);
 //-------------------------------------------------------
 //-----------declaro array de carrito--------------------
 //-------------------------------------------------------
-let carrito = [];
-
-//Parte de la tarea de usar un event on ENTER key
-let inputPromocode = document.getElementById('promocodeInput');
-
-let pCorrecto = document.getElementById('pEnter');
-inputPromocode.addEventListener('keyup', function(event) {
-    if (event.key === 'Enter') {
-        if (inputPromocode.value == 'venenous') {
-            pCorrecto.innerHTML = "Codigo correcto";
-        } else pCorrecto.innerHTML = "Codigo INCORRECTO";
-    }
-});
-//------------------------------------------------
-
-let btnRestar = document.getElementById('restar');
-let btnSumar = document.getElementById('sumar');
-let cantidadEntrante = document.getElementById('ingresoDeCantidad');
-
-btnRestar.addEventListener('click', () => {
-    subtractAmount(cantidadEntrante);
-});
-
-btnSumar.addEventListener('click', () => {
-    addAmount(cantidadEntrante);
-});
+let carrito = JSON.parse(localStorage.getItem('carritoEnJson')) || [];
 
 //-------------------------------------------------------
 //------------------- funciones -------------------------
 //-------------------------------------------------------
 //--------- logic caller ------------
 function btnToCart() {
-    let nombreID = document.getElementById('ingresoDeId').value;
-    let cantidadFinal = parseInt(document.getElementById('ingresoDeCantidad').value);
-    
-    let prod = findProduct(arrayPrendas, nombreID);
-    
-    if (prod == undefined) {
-        wrongInput();
-    } else {
-        if (checkStock(prod, cantidadFinal)) {
-            manageStock(prod, cantidadFinal);
-            addToCart(carrito, prod, cantidadFinal);
+    let arrayItemsCobra = document.getElementsByClassName('itemsCobra');
+    let arrayItemsDisrupted = document.getElementsByClassName('itemsDisrupted');
+    let arrayItemsBlue = document.getElementsByClassName('itemsBlue');
+    let arrayItemsGreen = document.getElementsByClassName('itemsGreen');
+    let arrayItemsBrown = document.getElementsByClassName('itemsBrown');
 
-            //---------calcular precio total del carro------
-            let cartTotal = totalCartPrice(carrito);
+    recorrerArrayPorValoresValidos([...arrayItemsCobra,...arrayItemsDisrupted,...arrayItemsBlue,...arrayItemsGreen,...arrayItemsBrown]);
 
-            //---------Mostrar items en carro------
-            let productoDelCarro = findProduct(carrito, nombreID);
-            showItemOnCart(productoDelCarro);
-
-            //---------Mostrar burbuja en carro------
-            amountItemsInCart(carrito);
-
-            //calcular descuento si es necesario
-            cartTotal = applyDiscount(cartTotal);
-            
-            //---------Mostrar precio total del carro------
-            showTotalPrice(cartTotal);
-        } else {
-            noStock();
+    let jsonCart = JSON.stringify(carrito);
+    localStorage.setItem('carritoEnJson', jsonCart);
+}
+function recorrerArrayPorValoresValidos(array){
+    for (let element of array) {
+        if ((element.value !== undefined) && (element.value > 0)) {
+            getProductsForCart(element);
         }
     }
 }
+function getProductsForCart({id: idItem, value: cantItem}) {
+    let prod = findProduct(arrayPrendas, idItem);
+
+    if (checkStock(prod, cantItem)) {
+        manageStock(prod, cantItem);
+        addToCart(carrito, prod, cantItem);
+    } else {
+        //hacer funcion de noStock
+        let noStockContainer = document.createElement("div");
+        noStockContainer.innerHTML = `<p class="textOnTop"> Not enough stock </p>`;
+        element.appendChild(noStockContainer);
+    }
+}
 //---------Main set of functions------
-function findProduct(array, id) {
+function findProduct(array, idAEncontrar) {
     //searches prodcut by id on arrayPrendas and returns the item
     for (item of array) {
-        if (item.id == id) {
+        if (item.id == idAEncontrar) {
             return item;
         }
     }
@@ -127,114 +99,17 @@ function manageStock(item, amount) {
     item.stockTotalDePrenda -= amount;
 }
 function addToCart(array, item, amount) {
+    // let modifique = false;
+    // array = array.map((element) => {
+    //     if (element.id == item.id) {
+    //         modifique = true;
+    //         return {...item, cantidad: element.cantidad + amount};
+    //     } else {
+    //         return element
+    //     }
+    // });
+    // if (!modifique) {
+    //     carrito.push(new PrendaEnCarro(item.id, item.nombrePrenda, item.precioPrenda, amount));
+    // }
     array.push(new PrendaEnCarro(item.id, item.nombrePrenda, item.precioPrenda, amount));
-}
-function totalCartPrice(array) {
-    let total = 0;
-    for (item of array) {
-        total = total + (item.precioPrenda * item.stockDePrendaEnCarro);
-    }
-
-    return total
-}
-function applyDiscount(total) {
-    let keyword = document.getElementById('promocodeInput').value;
-    let desc = 35;
-    let newtotal;
-    if (keyword == 'venenous') {
-        newtotal = total - ((total * desc) / 100);
-        return newtotal;
-    } else return total
-}
-//---------Add amount functions------
-function addAmount(input) {
-    input.value = parseInt(input.value) + 1;
-}
-function subtractAmount(input) {
-    input.value = parseInt(input.value) - 1;
-}
-//---------Borrar carrito------
-function ClearCart(arrayCarro, arrayProd) {
-    for (element of arrayCarro) {
-        returnStockBack(arrayProd, element.id, element.stockDePrendaEnCarro);
-        arrayCarro.shift()
-    }
-    showItemOnCart();
-    showTotalPrice();
-    amountItemsInCart();
-    
-}
-function returnStockBack(arrayProd, idToReturn, amountToReturn) {
-    let i = 0;
-    while (true) {
-        if (arrayProd[i].id == idToReturn) {
-            arrayProd[i].stockTotalDePrenda += amountToReturn;
-            break;
-        }
-    }
-}
-//---------errors & warnings------
-function noStock() {
-    let showName = document.getElementById('cartProduct1');
-    showName.innerText = 'No hay stock suficiente de este producto';
-}
-function wrongInput() {
-    let showName = document.getElementById('cartProduct1');
-    showName.innerText = 'Error al ingresar los datos';
-}
-//---------Prints, show on screen------
-function showItemOnCart(item) {
-    let showName = document.getElementById('cartProduct1');
-    let showAmount = document.getElementById('cartProductAmount1');
-    let showPrice = document.getElementById('cartPrice1');
-
-    if (item !== undefined) {
-        showName.innerText = item.nombrePrenda;
-        showAmount.innerText = 'x' + item.stockDePrendaEnCarro;
-        showPrice.innerText = item.precioPrenda * item.stockDePrendaEnCarro;
-    } else {
-        showName.innerText = 'Empty';
-        showAmount.innerText = '';
-        showPrice.innerText = '';
-    }
-}
-function amountItemsInCart(array) {
-    let bubble = document.getElementById('numOfItemsInCart')
-    let total = 0;
-    if (array !== undefined) {
-        for (element of array) {
-            total = total + element.stockDePrendaEnCarro;
-        }
-        bubble.innerHTML = total;
-    } else bubble.innerHTML = ''
-}
-function showTotalPrice(total) {
-    let showTotal = document.getElementById('cartTotalPrice');
-    if (total !== undefined) {
-        showTotal.innerText = total;
-    } else {
-        showTotal.innerText = '';
-    }
-}
-
-
-
-
-
-//Estas funciones estan creadas pero no usadas de momento
-function applyTaxes(total) {
-    let tax = 21;
-    total = total + ((total * tax) / 100)
-    return total;
-}
-
-function applyDues(total, duePercentaje , cantDues) {
-    total = total + ((total * duePercentaje ) / 100)
-    return (total/cantDues)
-}
-
-function enCarrito(array) {
-    //retorna un nuevo array con la informacion booleanda de si los items se encuentran en el carro o no
-    let salida = array.map((item => item.estadoEnCarro));
-    return salida
 }
