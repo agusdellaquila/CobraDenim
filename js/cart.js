@@ -5,8 +5,6 @@ let getArrayPrendas = localStorage.getItem('arrayStock');
 let arrayPrendas = JSON.parse(getArrayPrendas);
 
 let total = totalCartPrice(carrito);
-total = applyDiscount(total); //Boton submit
-
 
 //---------Mostrar items en carro------
 showItemsOnCart(carrito);
@@ -44,26 +42,28 @@ function applyDiscount() {
     
 //---------Borrar carrito------
 function clearCart(arrayCarro, arrayProd) {
-    let arrayShowItemName = document.getElementsByClassName('productNameOnCart');
-    let arrayShowItemAmount = document.getElementsByClassName('productAmountOnCart');
-    let arrayShowItemPrice = document.getElementsByClassName('productPriceOnCart');
-    let showTotalPrice = document.getElementById('productFinalPriceOnCart');
-    let showTotalAmount = document.getElementById('productFinalAmountOnCart');
-    let i = 0;
+    // Swal.fire({
+    //     title: 'Are you sure you want to delete the cart?',
+    //     confirmButtonText: yes,
+    //     cancelButtonText: no,
+    // })
+    // let arrayShowItemName = document.getElementsByClassName('productNameOnCart');
+    // let arrayShowItemAmount = document.getElementsByClassName('productAmountOnCart');
+    // let arrayShowItemPrice = document.getElementsByClassName('productPriceOnCart');
+    // let showTotalPrice = document.getElementById('productFinalPriceOnCart');
+    // let showTotalAmount = document.getElementById('productFinalAmountOnCart');
+    // let i = 0;
 
-    for (element of arrayCarro) {
-        returnStockBack(arrayProd, element.id, element.stockDePrendaEnCarro);
-        arrayShowItemName[i].innerHTML = '';
-        arrayShowItemAmount[i].innerHTML = '';
-        arrayShowItemPrice[i].innerHTML = '';
-        arrayCarro.shift();
-        i++;
-    }
-    showTotalPrice.innerHTML = '';
-    showTotalAmount.innerHTML = '';
-
-    
-    
+    // for (element of arrayCarro) {
+    //     returnStockBack(arrayProd, element.id, element.stockDePrendaEnCarro);
+    //     arrayShowItemName[i].innerHTML = '';
+    //     arrayShowItemAmount[i].innerHTML = '';
+    //     arrayShowItemPrice[i].innerHTML = '';
+    //     arrayCarro.shift();
+    //     i++;
+    // }
+    // showTotalPrice.innerHTML = '';
+    // showTotalAmount.innerHTML = '';  
 }
 function returnStockBack(arrayProd, idToReturn, amountToReturn) {
     let i = 0;
