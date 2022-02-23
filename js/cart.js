@@ -5,7 +5,6 @@ let getArrayPrendas = localStorage.getItem('arrayStock');
 let arrayPrendas = JSON.parse(getArrayPrendas);
 
 let total = totalCartPrice(carrito);
-
 //---------Mostrar items en carro------
 showItemsOnCart(carrito);
 
@@ -14,8 +13,6 @@ amountItemsInCart(carrito);
 
 // //---------Mostrar precio total del carro------
 showTotalPrice(carrito);
-
-
 
 //-------------------------------------------------------
 //------------------- funciones -------------------------
@@ -38,41 +35,65 @@ function applyDiscount() {
         let showTotalPrice = document.getElementById('productFinalPriceOnCart');
         showTotalPrice.innerHTML = newtotal;
     }
-}
-    
+}  
 //---------Borrar carrito------
 function clearCart(arrayCarro, arrayProd) {
-    // Swal.fire({
-    //     title: 'Are you sure you want to delete the cart?',
-    //     confirmButtonText: yes,
-    //     cancelButtonText: no,
-    // })
-    // let arrayShowItemName = document.getElementsByClassName('productNameOnCart');
-    // let arrayShowItemAmount = document.getElementsByClassName('productAmountOnCart');
-    // let arrayShowItemPrice = document.getElementsByClassName('productPriceOnCart');
-    // let showTotalPrice = document.getElementById('productFinalPriceOnCart');
-    // let showTotalAmount = document.getElementById('productFinalAmountOnCart');
-    // let i = 0;
+    //pendiente: modularizar mas esta funcion
+    Swal.fire({
+        title:'Are you sure you want to delete the cart?',
+        confirmButtonText: 'yes, delete',
+        confirmButtonColor: '#96c93d',
+        showDenyButton: true,
+        DenyButtonText: 'no'}).then((result) => {
+            if (result.isConfirmed) {
+                confirmedDeleteCart(arrayCarro, arrayProd)
+                
+                let arrayStock = JSON.stringify(arrayProd);
+                localStorage.setItem('arrayStock', arrayStock);
 
-    // for (element of arrayCarro) {
-    //     returnStockBack(arrayProd, element.id, element.stockDePrendaEnCarro);
-    //     arrayShowItemName[i].innerHTML = '';
-    //     arrayShowItemAmount[i].innerHTML = '';
-    //     arrayShowItemPrice[i].innerHTML = '';
-    //     arrayCarro.shift();
-    //     i++;
-    // }
-    // showTotalPrice.innerHTML = '';
-    // showTotalAmount.innerHTML = '';  
+                arrayCarro = [];
+                let carrito = JSON.stringify(arrayCarro);
+                localStorage.setItem('carritoEnJson', carrito);
+                
+            } else {
+                Toastify({
+                    text: "No items deleted",
+                    duration: 1500,
+                    style: {background: "#ffc107",}
+                }).showToast();
+            }
+        });
+}
+function confirmedDeleteCart(arrayCarro, arrayProd) {
+    let allItems = document.getElementById('checkoutListing');
+    let showTotalBubble = document.getElementById('numOfItemsInCart');
+    
+    for (element of arrayCarro) {
+        returnStockBack(arrayProd, element.id, element.stockDePrendaEnCarro);
+    }
+
+    allItems.remove();
+    showTotalBubble.remove();
+
+    Toastify({
+        text: "Items deleted from cart",
+        duration: 3000,
+        style: {background: "#dc3545",}
+    }).showToast();
 }
 function returnStockBack(arrayProd, idToReturn, amountToReturn) {
-    let i = 0;
-    while (true) {
-        if (arrayProd[i].id == idToReturn) {
-            arrayProd[i].stockTotalDePrenda += amountToReturn;
-            break;
+    for (element of arrayProd) {
+        if (element.id == idToReturn) {
+            element.stockTotalDePrenda += amountToReturn;
         }
-        i++;
+    }
+}
+function findProduct(array, idAEncontrar) {
+    //searches prodcut by id on arrayPrendas and returns the item
+    for (item of array) {
+        if (item.id == idAEncontrar) {
+            return item;
+        }
     }
 }
 //---------Prints, show on screen------
@@ -94,22 +115,16 @@ function showItemsOnCart(array) {
     let arrayShowItemName = document.getElementsByClassName('productNameOnCart');
     let arrayShowItemAmount = document.getElementsByClassName('productAmountOnCart');
     let arrayShowItemPrice = document.getElementsByClassName('productPriceOnCart');
+    
     let i = 0;
-
-    for (element of array) {
-        arrayShowItemName[i].innerHTML = element.nombrePrenda;
-        arrayShowItemAmount[i].innerHTML = 'x' + element.stockDePrendaEnCarro;
-        arrayShowItemPrice[i].innerHTML = element.precioPrenda;
-        i++;
+    if (array.length !== 0) {
+        for (element of array) {
+            arrayShowItemName[i].innerHTML = element.nombrePrenda;
+            arrayShowItemAmount[i].innerHTML = 'x' + element.stockDePrendaEnCarro;
+            arrayShowItemPrice[i].innerHTML = element.precioPrenda;
+            i++;
+        }
     }
-    // para el delete cart
-    // if (array !== undefined) {
-    // } else {
-    //     let deleteCartItems = document.getElementsByClassName('list-group');
-    //     for (element of deleteCartItems) {
-    //         element.innerHTML = '';
-    //     }
-    // }
 }
 function amountItemsInCart(array) {
     let bubble = document.getElementById('numOfItemsInCart')
@@ -121,7 +136,7 @@ function showTotalPrice(array) {
     contenedorFinalPrice.innerHTML = `<div class="list-group">
     <li id="cart-prodList" class="list-group-item d-flex justify-content-between lh-sm">
         <div>
-            <h5 my-0">Total</h5>
+            <h5 class="my-0" id="totalFinalName">Total</h5>
             <small id="productFinalAmountOnCart" class="text-muted"></small>
         </div>
         <span id="productFinalPriceOnCart" class="text-muted"></span>
@@ -141,12 +156,10 @@ function applyTaxes(total) {
     total = total + ((total * tax) / 100)
     return total;
 }
-
 function applyDues(total, duePercentaje , cantDues) {
     total = total + ((total * duePercentaje ) / 100)
     return (total/cantDues)
 }
-
 function enCarrito(array) {
     //retorna un nuevo array con la informacion booleanda de si los items se encuentran en el carro o no
     let salida = array.map((item => item.estadoEnCarro));

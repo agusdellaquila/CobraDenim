@@ -20,6 +20,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;800;900&display=swap" rel="stylesheet">
     <!--animate css-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!--toastify css-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 </head>
     <body>
         <header>
@@ -164,14 +166,11 @@
                             <h3>$Cobra <br> venom</h3> 
                             <p class="textoVerde membersOnly">*Only for CobraClub members </p>
                         </div>
-                        <a href="../pages/checkout.html">
-                            <img src="../img/collections-Img/destacados/cobra1 3.png" alt="producto">
-                        </a>
+                        <img src="../img/collections-Img/destacados/cobra1 3.png" alt="producto">       
                     </div>
                     <div class="destacado2 imgContain noBackRepeat d-flex justify-content-start align-items-center my-1 py-3 collectionsBg">
-                        <a href="../pages/checkout.html">
-                            <img src="../img/collections-Img/destacados/disrupted1 8.png" alt="producto">
-                        </a>
+                        <img src="../img/collections-Img/destacados/disrupted1 8.png" alt="producto">
+                       
                         <div class="mx-4">
                             <h3>Brown Denim <br> teddy</h3>
                         </div>
@@ -180,9 +179,7 @@
                         <div class="mx-4">
                             <h3>Green Denim <br> viper</h3>
                         </div>
-                        <a href="../pages/checkout.html">
-                            <img src="../img/collections-Img/destacados/greenDenim3 3.png" alt="producto">
-                        </a>
+                        <img src="../img/collections-Img/destacados/greenDenim3 3.png" alt="producto">
                     </div>
                 </div>
 
@@ -197,53 +194,80 @@
                             <h2 id="lineaCobra">\$Cobra</h2>
                             <div class='d-flex galeriaProductos'>
                                 <div>
+                                    <p class="h5">Cobra venom</p>
                                     <img src="../img/collections-Img/products/$cobra/cobra1.jpg" alt="producto">
-                                    <input class="itemsCobra" id="1001" type="number" value="0">
+                                    <div>
+                                        <button type="button" id="1001" class="btn btn-secondary coloresBoton fw-bold" onclick="btnToCart('1001')">AddToCart</button>
+                                    </div>
                                 </div>
 
                                 <div>
+                                    <p class="h5">Cobra fang</p>
                                     <img src="../img/collections-Img/products/$cobra/cobra2.jpg" alt="producto">
-                                    <input class="itemsCobra" id="1002" type="number" value="0">
+                                    <div>
+                                        <button type="button" id="1002" class="btn btn-secondary coloresBoton fw-bold" onclick="btnToCart('1002')">AddToCart</button>
+                                    </div>
                                 </div>
             
                                 <div>
+                                    <p class="h5">Cobra Viper</p>
                                     <img src="../img/collections-Img/products/$cobra/cobra3.jpg" alt="producto">
-                                    <input class="itemsCobra" id="1003" type="number" value="0">
+                                    <div>
+                                        <button type="button" id="1003" class="btn btn-secondary coloresBoton fw-bold" onclick="btnToCart('1003')">AddToCart</button>
+                                    </div>
                                 </div>
 
                                 <div>
+                                    <p class="h5">Cobra mamba</p>
                                     <img src="../img/collections-Img/products/$cobra/cobra4.jpg" alt="producto">
-                                    <input class="itemsCobra" id="1004" type="number" value="0">
+                                    <div>
+                                        <button type="button" id="1004" class="btn btn-secondary coloresBoton fw-bold" onclick="btnToCart('1004')">AddToCart</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         
                         <div>
                             <!--LINEA disrupted-->
-                            <h2 id="lineaDisrupted">\Linea D1srupted</h2>
+                            <h2 id="lineaDisrupted">\Linea D1srupt3d</h2>
                             <div class='d-flex galeriaProductos'>
                                     <div>
+                                        <p class="h5">D1srupt3d pzk</p>
                                         <img src="../img/collections-Img/products/D1srupted/disrupted1.jpg" alt="producto">
-                                        <input class="itemsDisrupted" id="2001" type="number" value="0">
+                                        <div>
+                                            <button type="button" id="2001" class="btn btn-secondary coloresBoton fw-bold" onclick="btnToCart('2001')">AddToCart</button>
+                                        </div>
                                     </div>
 
                                     <div>
+                                        <p class="h5">D1srupt3d cruella</p>
                                         <img src="../img/collections-Img/products/D1srupted/disrupted2.jpg" alt="producto">
-                                        <input class="itemsDisrupted" id="2002" type="number" value="0">
+                                        <div>
+                                            <button type="button" id="2002" class="btn btn-secondary coloresBoton fw-bold" onclick="btnToCart('2002')">AddToCart</button>
+                                        </div>
                                     </div>
 
                                     <div>
+                                        <p class="h5">D1srupt3d cors3t</p>
                                         <img src="../img/collections-Img/products/D1srupted/disrupted3.jpg" alt="producto">
-                                        <input class="itemsDisrupted" id="2003" type="number" value="0">
+                                        <div>
+                                            <button type="button" id="2003" class="btn btn-secondary coloresBoton fw-bold" onclick="btnToCart('2003')">AddToCart</button>
+                                        </div>
                                     </div>
 
                                     <div>
+                                        <p class="h5">D1srupt3d street</p>
                                         <img src="../img/collections-Img/products/D1srupted/disrupted4.jpg" alt="producto">
-                                        <input class="itemsDisrupted" id="2004" type="number" value="0">
+                                        <div>
+                                            <button type="button" id="2004" class="btn btn-secondary coloresBoton fw-bold" onclick="btnToCart('2004')">AddToCart</button>
+                                        </div>
                                     </div>
                                     <div>
+                                        <p class="h5">D1srupt3d cow</p>
                                         <img src="../img/collections-Img/products/D1srupted/disrupted5.jpg" alt="producto">
-                                        <input class="itemsDisrupted" id="2005" type="number" value="0">
+                                        <div>
+                                            <button type="button" id="2005" class="btn btn-secondary coloresBoton fw-bold" onclick="btnToCart('2005')">AddToCart</button>
+                                        </div>
                                     </div>
                             </div>
                         </div>
@@ -253,28 +277,43 @@
                             <h2 id="lineaBlueDenim">\Blue Denim</h2>
                             <div class='d-flex galeriaProductos'>
                                 <div>
+                                    <p class="h5">Blue lastic</p>
                                     <img src="../img/collections-Img/products/blueDenim/blueDenim1.jpg " alt="producto">
-                                    <input class="itemsBlue" id="3001" type="number" value="0">
+                                    <div>
+                                        <button type="button" id="3001" class="btn btn-secondary coloresBoton fw-bold" onclick="btnToCart('3001')">AddToCart</button>
+                                    </div>
                                 </div>
             
                                 <div>
+                                    <p class="h5">Blue fly</p>
                                     <img src="../img/collections-Img/products/blueDenim/blueDenim2.jpg " alt="producto">
-                                    <input class="itemsBlue" id="3002" type="number" value="0">
+                                    <div>
+                                        <button type="button" id="3002" class="btn btn-secondary coloresBoton fw-bold" onclick="btnToCart('3002')">AddToCart</button>
+                                    </div>
                                 </div>
 
                                 <div>
+                                    <p class="h5">Blue ocean</p>
                                     <img src="../img/collections-Img/products/blueDenim/blueDenim3.jpg " alt="producto">
-                                    <input class="itemsBlue" id="3003" type="number" value="0">
+                                    <div>
+                                        <button type="button" id="3003" class="btn btn-secondary coloresBoton fw-bold" onclick="btnToCart('3003')">AddToCart</button>
+                                    </div>
                                 </div>
 
                                 <div>
+                                    <p class="h5">Blue longfit</p>
                                     <img src="../img/collections-Img/products/blueDenim/blueDenim4.jpg " alt="producto">
-                                    <input class="itemsBlue" id="3004" type="number" value="0">
+                                    <div>
+                                        <button type="button" id="3004" class="btn btn-secondary coloresBoton fw-bold" onclick="btnToCart('3004')">AddToCart</button>
+                                    </div>
                                 </div>
 
                                 <div>
+                                    <p class="h5">Blue stamp</p>
                                     <img src="../img/collections-Img/products/blueDenim/blueDenim5.jpg " alt="producto">
-                                    <input class="itemsBlue" id="3005" type="number" value="0">
+                                    <div>
+                                        <button type="button" id="3005" class="btn btn-secondary coloresBoton fw-bold" onclick="btnToCart('3005')">AddToCart</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -284,27 +323,42 @@
                             <h2 id="lineaGreenDenim">\Green Denim</h2>
                             <div class='d-flex galeriaProductos'>
                                     <div>
+                                        <p class="h5">Green poison</p>
                                         <img src="../img/collections-Img/products/greenDenim/greenDenim1.jpg " alt="producto">
-                                        <input class="itemsGreen" id="4001" type="number" value="0">
+                                        <div>
+                                            <button type="button" id="4001" class="btn btn-secondary coloresBoton fw-bold" onclick="btnToCart('4001')">AddToCart</button>
+                                        </div>
                                     </div>
                                     <div>
+                                        <p class="h5">Green snake</p>
                                         <img src="../img/collections-Img/products/greenDenim/greenDenim2.jpg " alt="producto">
-                                        <input class="itemsGreen" id="4002" type="number" value="0">
+                                        <div>
+                                            <button type="button" id="4002" class="btn btn-secondary coloresBoton fw-bold" onclick="btnToCart('4002')">AddToCart</button>
+                                        </div>
                                     </div>
                 
                                     <div>
+                                        <p class="h5">Green corderoy</p>
                                         <img src="../img/collections-Img/products/greenDenim/greenDenim3.jpg " alt="producto">
-                                        <input class="itemsGreen" id="4003" type="number" value="0">
+                                        <div>
+                                            <button type="button" id="4003" class="btn btn-secondary coloresBoton fw-bold" onclick="btnToCart('4003')">AddToCart</button>
+                                        </div>
                                     </div>
 
                                     <div>
+                                        <p class="h5">Green jungle</p>
                                         <img src="../img/collections-Img/products/greenDenim/greenDenim4.jpg " alt="producto">
-                                        <input class="itemsGreen" id="4004" type="number" value="0">
+                                        <div>
+                                            <button type="button" id="4004" class="btn btn-secondary coloresBoton fw-bold" onclick="btnToCart('4004')">AddToCart</button>
+                                        </div>
                                     </div>
 
                                     <div>
+                                        <p class="h5">Green spring</p>
                                         <img src="../img/collections-Img/products/greenDenim/greenDenim5.jpg " alt="producto">
-                                        <input class="itemsGreen" id="4005" type="number" value="0">
+                                        <div>
+                                            <button type="button" id="4005" class="btn btn-secondary coloresBoton fw-bold" onclick="btnToCart('4005')">AddToCart</button>
+                                        </div>
                                     </div>
                             </div>
                         </div>
@@ -314,35 +368,47 @@
                             <h2 id="lineaBrownDenim">\Brown Denim</h2>
                             <div class='d-flex galeriaProductos'>
                                     <div>
+                                        <p class="h5">Brown sheriff</p>
                                         <img src="../img/collections-Img/products/brownDenim/brownDenim1.jpg " alt="producto">
-                                        <input class="itemsBrown" id="5001" type="number" value="0">
+                                        <div>
+                                            <button type="button" id="5001" class="btn btn-secondary coloresBoton fw-bold" onclick="btnToCart('5001')">AddToCart</button>
+                                        </div>
                                     </div>
             
                                     <div>
+                                        <p class="h5">Brown bear</p>
                                         <img src="../img/collections-Img/products/brownDenim/brownDenim2.jpg " alt="producto">
-                                        <input class="itemsBrown" id="5002" type="number" value="0">
+                                        <div>
+                                            <button type="button" id="5002" class="btn btn-secondary coloresBoton fw-bold" onclick="btnToCart('5002')">AddToCart</button>
+                                        </div>
                                     </div>
                 
                                     <div>
+                                        <p class="h5">Brown cowboy</p>
                                         <img src="../img/collections-Img/products/brownDenim/brownDenim3.jpg " alt="producto">
-                                        <input class="itemsBrown" id="5003" type="number" value="0">
+                                        <div>
+                                            <button type="button" id="5003" class="btn btn-secondary coloresBoton fw-bold" onclick="btnToCart('5003')">AddToCart</button>
+                                        </div>
                                     </div>
 
                                     <div>
+                                        <p class="h5">Brown mess</p>
                                         <img src="../img/collections-Img/products/brownDenim/brownDenim4.jpg " alt="producto">
-                                        <input class="itemsBrown" id="5004" type="number" value="0">
+                                        <div>
+                                            <button type="button" id="5004" class="btn btn-secondary coloresBoton fw-bold" onclick="btnToCart('5004')">AddToCart</button>
+                                        </div>
                                     </div>
 
                                     <div>
+                                        <p class="h5">Brown love</p>
                                         <img src="../img/collections-Img/products/brownDenim/brownDenim5.jpg " alt="producto">
-                                        <input class="itemsBrown" id="5005" type="number" value="0">
+                                        <div>
+                                            <button type="button" id="5005" class="btn btn-secondary coloresBoton fw-bold" onclick="btnToCart('5005')">AddToCart</button>
+                                        </div>
                                     </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div>
-                    <button type="button" class="btn btn-secondary coloresBoton fw-bold" onclick="btnToCart()">AddToCart</button>
                 </div>
             </section>
         </main>
@@ -383,7 +449,7 @@
                                 <div class="d-flex flex-column w-100 gap-2">
                                     <label for="newsletter1" class="visually-hidden">Email address</label>
                                     <input id="newsletter1" type="text" class="form-control coloresInput newsEmail" placeholder="*Your email" placeholder="a">
-                                    <button class="btn btn-primary coloresBoton fw-bold column" type="button">Subscribe</button>
+                                    <button class="btn btn-primary coloresBoton fw-bold column" type="button" onclick="saveEmail()">Subscribe</button>
                                 </div>
                             </form>
                         </div>
@@ -408,7 +474,11 @@
         <!-- Js -->
         <script src="../bootstrap/js/bootstrap.min.js"></script>
         <!--js script-->
-        <script src="../js/main.js"></script>
+        <script src="../js/products.js"></script>
+        <!--toastify js-->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+        <!--Newsletter-->
+    <script src="../js/newsletter.js"></script>
     </body>
 
 </html>

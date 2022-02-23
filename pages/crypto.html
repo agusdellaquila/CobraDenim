@@ -160,6 +160,9 @@
                     <p>Get our crypto and buy your favourite products</p>
                     <p>You also have access to exclusive benefits!</p>
                     <p class="textoVerde">*Being a $COBRA holder automatically makes you a member of the cobra club investor</p>
+                    <div>
+                        <canvas id="myChart"></canvas>
+                    </div>
                 </div>
 
                 <!--crypto swap-->
@@ -203,7 +206,7 @@
                                 <div class="d-flex flex-column w-100 gap-2">
                                     <label for="newsletter1" class="visually-hidden">Email address</label>
                                     <input id="newsletter1" type="text" class="form-control coloresInput newsEmail" placeholder="*Your email" placeholder="a">
-                                    <button class="btn btn-primary coloresBoton fw-bold column" type="button">Subscribe</button>
+                                    <button class="btn btn-primary coloresBoton fw-bold column" type="button" onclick="saveEmail()">Subscribe</button>
                                 </div>
                             </form>
                         </div>
@@ -228,6 +231,48 @@
         </footer>
         <!-- Js -->
         <script src="../bootstrap/js/bootstrap.min.js"></script>
+        <!--Newsletter-->
+        <script src="../js/newsletter.js"></script>
+        <!--crypto-->
+        <script src="../js/crypto.js"></script>
+        <!--toastify js-->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+        <!--chart.js-->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+        <script>
+            const labels = [
+              'January',
+              'February',
+              'March',
+              'April',
+              'May',
+              'June',
+            ];
+          
+            const data = {
+              labels: labels,
+              datasets: [{
+                label: '$Cobra Monthly Chart',
+                backgroundColor: '#96c93d',
+                borderColor: 'rgb(255, 255, 255)',
+                data: [0, 10, 5, 2, 20, 30, 45],
+              }]
+            };
+          
+            const config = {
+              type: 'line',
+              data: data,
+              options: {}
+            };
+          </script>
+
+        <script>
+            const myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+            );
+        </script>
     </body>
 
 </html>

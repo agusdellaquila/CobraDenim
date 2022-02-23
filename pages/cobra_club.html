@@ -192,7 +192,7 @@
                     <div class="infoBenefits text-black">
                         <p class="benHeading centrado">Cobra Club members have:</p>
                         <div class="listBenefits d-flex flex-column align-items-center justify-content-evenly fw-bold">
-                            <img src="../img/cobraClub-Img/piggy-bank.svg" class=" pt-1" alt="benefits icon - discounts">
+                            <img src="../img/cobraClub-Img/piggy-bank.svg" class="pt-1" alt="benefits icon - discounts">
                             <p>Discounts</p>
                             <img src="../img/cobraClub-Img/box-seam.svg" class="" alt="benefits icon - free shipping">
                             <p>Free shipping</p>
@@ -306,7 +306,7 @@
                             <div class="d-flex flex-column w-100 gap-2">
                                 <label for="newsletter1" class="visually-hidden">Email address</label>
                                 <input id="newsletter1" type="text" class="form-control coloresInput newsEmail" placeholder="*Your email" placeholder="a">
-                                <button class="btn btn-primary coloresBoton fw-bold column" type="button">Subscribe</button>
+                                <button class="btn btn-primary coloresBoton fw-bold column" type="button" onclick="saveEmail()">Subscribe</button>
                             </div>
                         </form>
                     </div>
@@ -331,6 +331,10 @@
     </footer>
     <!-- Js -->
     <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <!--Newsletter-->
+    <script src="../js/newsletter.js"></script>
+    <!--toastify js-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </body>
 
 </html>

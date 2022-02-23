@@ -19,6 +19,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;800;900&display=swap" rel="stylesheet">
         <!--animate css-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+        <!--toastify css-->
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     </head>
 <body>
     <header>
@@ -376,7 +378,7 @@
                                     <div class="d-flex flex-column w-100 gap-2">
                                         <label for="newsletter1" class="visually-hidden">Email address</label>
                                         <input id="newsletter1" type="text" class="form-control coloresInput newsEmail" placeholder="*Your email" placeholder="a">
-                                        <button class="btn btn-primary coloresBoton fw-bold column" type="button">Subscribe</button>
+                                        <button class="btn btn-primary coloresBoton fw-bold column" type="button" onclick="saveEmail()">Subscribe</button>
                                     </div>
                                 </form>
                             </div>
@@ -406,7 +408,13 @@
     <script src="form-validation.js"></script>
     <!--js script-->
     <script src="../js/cart.js"></script>
+    <!--Newsletter-->
+    <script src="../js/newsletter.js"></script>
     <!--sweet alert-->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!--toastify js-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <!--swal-->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </body>
 </html>
