@@ -162,29 +162,29 @@
                             <div class="contactForm contactDiv">
                                 <!--FORM CONTACTENOS-->
                                 <h3 class="contactSubtitle subrayadoVerde">Contact Us</h3>
-                                <input class="formLetter contactBoxes" type="text" name="nombre" placeholder="Name:" />
+                                <input id="contactName" class="formLetter contactBoxes" type="text" name="nombre" placeholder="Name:" />
                                 
-                                <input class="formLetter contactBoxes" type="text" name="apellido" placeholder="Last name:" />
+                                <input id="contactSurname" class="formLetter contactBoxes" type="text" name="apellido" placeholder="Last name:" />
                         
-                                <input class="formLetter contactBoxes" type="tel" name="telefono" placeholder="Phone:" min="8" max="12" />
+                                <input id="contactPhone" class="formLetter contactBoxes" type="tel" name="telefono" placeholder="Phone:" min="8" max="12" />
                                 
-                                <input class="formLetter contactBoxes" type="email" name="mail" placeholder="Email:" />
+                                <input id="contactEmail" class="formLetter contactBoxes" type="email" name="mail" placeholder="Email:" />
                                 
-                                <select name="Genero" class="formLetter">
+                                <select id="contactGender" name="Genero" class="formLetter">
                                 <option value="F"> Female </option>
                                 <option value="M"> Male </option>
                                 <option value="N"> Non binary </option>
                                 <option value="Os"> Other </option>
                                 </select>
                                 
-                                <textarea class="formLetter contactTextarea" rows="10" cols="40" placeholder="Your message:"></textarea>
+                                <textarea id="contactMessage" class="formLetter contactTextarea" rows="10" cols="40" placeholder="Your message:"></textarea>
                                 
                                 <input class="formLetter contactBtn btn btn-primary fw-bold column clearBtn" type="reset" value="Clean form" />
                                 
                                 <input class="formLetter form-check-input" type="checkbox" name="acepta" value="1" />
                                 <label for="checkbox">I agree to recieve Cobra Denim news</label>
                                 
-                                <input class="formLetter btn btn-primary fw-bold column sendBtn" type="submit" value="Send" />
+                                <button class="formLetter btn btn-primary fw-bold column sendBtn" type="button" onclick="recieveContactEmail()">Submit</button>
                             </div>
                         </form>
                     </div>
@@ -276,6 +276,15 @@
     <script src="../js/newsletter.js"></script>
     <!--toastify js-->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <!--contactForm.js-->
+    <script src="../js/contactForm.js"></script>
+    <!--EmailJS-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+    (function() {
+    emailjs.init("iK5MyfzbCcTK4kYc6");
+    })();
+    </script>
 </body>
 
 </html>
