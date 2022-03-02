@@ -7,16 +7,11 @@ let arrayPrendas = JSON.parse(getArrayPrendas);
 let total = totalCartPrice(carrito);
 //---------Mostrar items en carro------
 showItemsOnCart(carrito);
-
 // //---------Mostrar burbuja en carro------
 amountItemsInCart(carrito);
-
 // //---------Mostrar precio total del carro------
 showTotalPrice(carrito);
-
-//-------------------------------------------------------
 //------------------- funciones -------------------------
-//-------------------------------------------------------
 //---------Main set of functions------
 function totalCartPrice(array) {
     let total = 0;
@@ -149,19 +144,4 @@ function showTotalPrice(array) {
     let total = totalCartPrice(carrito);
     showTotalPrice.innerHTML = total;
     showTotalAmount.innerHTML = 'x' + array.length;
-}
-//Estas funciones estan creadas pero no usadas de momento
-function applyTaxes(total) {
-    let tax = 21;
-    total = total + ((total * tax) / 100)
-    return total;
-}
-function applyDues(total, duePercentaje , cantDues) {
-    total = total + ((total * duePercentaje ) / 100)
-    return (total/cantDues)
-}
-function enCarrito(array) {
-    //retorna un nuevo array con la informacion booleanda de si los items se encuentran en el carro o no
-    let salida = array.map((item => item.estadoEnCarro));
-    return salida
 }

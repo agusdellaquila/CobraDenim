@@ -1,6 +1,4 @@
-//-------------------------------------------------------
 //----creacion de objetos--------------------------------
-//-------------------------------------------------------
 class Prenda {
     constructor(id, nombrePrenda, precioPrenda, stockTotalDePrenda) {
         //propiedades del objeto
@@ -19,33 +17,15 @@ class PrendaEnCarro {
         this.stockDePrendaEnCarro = stockDePrendaEnCarro;
     }
 }
-//-------------------------------------------------------
-//----base de datos(?--------------------------
-//-------------------------------------------------------
-//uso await para asegurarme que si o si se capturen los productos antes de comenzar el programa
-const importarProductos = async () => {
-    let IngresoProductos = [];
-    await fetch('../stock.json').then( async (resp) => resp.json() ).then( async (data) => {IngresoProductos = data});
-} 
-
-importarProductos();
-//-------------------------------------------------------
 //-----------declaro array de prendas--------------------
-//-------------------------------------------------------
-let arrayPrendas = JSON.parse(localStorage.getItem('arrayStock')) || [];
-if (arrayPrendas.length === 0) {
-    arrayPrendas = IngresoProductos.map((item) => new Prenda(item.id, item.nombrePrenda, item.precioPrenda, item.stockTotalDePrenda));
-}
-//-------------------------------------------------------
+let arrayPrendas = [];
+importarProductos().then(val => arrayPrendas = val);
 //-----------declaro array de carrito--------------------
-//-------------------------------------------------------
 let carrito = JSON.parse(localStorage.getItem('carritoEnJson')) || [];
-//-------------------------------------------------------
 //------------------- funciones -------------------------
-//-------------------------------------------------------
 //--------- logic caller ------------
 function btnToCart(idProducto) {
-    getProductsForCart(idProducto, 1);
+    getProductsForCart(idProducto, 1); //numero fijo en 1 porque al tocar el btn se sube +1
     //mando array de carro ls
     let jsonCart = JSON.stringify(carrito);
     localStorage.setItem('carritoEnJson', jsonCart);
@@ -54,10 +34,10 @@ function btnToCart(idProducto) {
     localStorage.setItem('arrayStock', arrayStock);
 }
 function getProductsForCart(idProducto, cantItem) {
-    let prod = findProduct(arrayPrendas, idProducto);
-    if (checkStock(prod, cantItem)) {
-        manageStock(prod, cantItem);
-        carrito = addToCart(carrito, prod, cantItem);
+    let prod = findProduct(arrayPrendas, idProducto); //finds the product matching the id
+    if (checkStock(prod, cantItem)) { //checks if there is enough stock
+        manageStock(prod, cantItem); //if there is, manages the stock to subtract the amount
+        carrito = addToCart(carrito, prod, cantItem); //adds the new item to cart
         Toastify({
             text: "Item added to cart",
             duration: 1000,
@@ -104,3 +84,16 @@ function addToCart(array, item, amount) {
     }
     return array
 }
+//----base de datos, de momento con json-----------------
+//uso await para asegurarme que si o si se capturen los productos antes de comenzar el programa
+async function importarProductos () {
+    let ingresoProductos = [];
+    await fetch("../stock.json").then(async res => res.json()).then(async data => ingresoProductos = data);
+
+    let arrayPrendas = JSON.parse(localStorage.getItem('arrayStock')) || [];
+    if (arrayPrendas.length === 0) {
+        arrayPrendas = ingresoProductos.map((item) => new Prenda(item.id, item.nombrePrenda, item.precioPrenda, item.stockTotalDePrenda));
+    }
+
+    return arrayPrendas
+} 

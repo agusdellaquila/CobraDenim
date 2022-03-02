@@ -232,6 +232,9 @@ html {
 .productosContent div {
   padding: 20px 0px; }
 
+.galeriaProductos {
+  flex-wrap: wrap; }
+
 .galeriaProductos a {
   text-decoration: none; }
 

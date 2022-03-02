@@ -1,18 +1,25 @@
 {
-  "name": "copiac",
+  "name": "cobra",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-css": "node-sass --include-path scss scss/origin.scss css/destiny.css",
+    "build-css": "node-sass --include-path scss SCSS/origin.scss css/destiny.css",
     "watch-css": "nodemon -e scss -x \"npm run build-css\""
-
   },
   "author": "aacu",
   "license": "ISC",
   "devDependencies": {
     "node-sass": "^6.0.1",
-    "nodemon": "^2.0.14"
-  }
+    "nodemon": "^2.0.15"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agusdellaquila/CobraDenim.git"
+  },
+  "bugs": {
+    "url": "https://github.com/agusdellaquila/CobraDenim/issues"
+  },
+  "homepage": "https://github.com/agusdellaquila/CobraDenim#readme",
+  "description": ""
 }
