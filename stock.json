@@ -4,11 +4,11 @@
     {"id": "1003", "nombrePrenda": "Cobra Viper", "precioPrenda": 4800, "stockTotalDePrenda": 150},
     {"id": "1004", "nombrePrenda": "Cobra mamba", "precioPrenda": 4800, "stockTotalDePrenda": 150},
 
-    {"id": "2001", "nombrePrenda": "D1srupt3d pzk", "precioPrenda": 4500, "stockTotalDePrenda": 550},
-    {"id": "2002", "nombrePrenda": "D1srupt3d cruella", "precioPrenda": 4500, "stockTotalDePrenda": 550},
-    {"id": "2003", "nombrePrenda": "D1srupt3d cors3t", "precioPrenda": 4500, "stockTotalDePrenda": 550},
-    {"id": "2004", "nombrePrenda": "D1srupt3d street", "precioPrenda": 4500, "stockTotalDePrenda": 550},
-    {"id": "2005", "nombrePrenda": "D1srupt3d cow", "precioPrenda": 4500, "stockTotalDePrenda": 550},
+    {"id": "2001", "nombrePrenda": "Disrupted pzk", "precioPrenda": 4500, "stockTotalDePrenda": 550},
+    {"id": "2002", "nombrePrenda": "Disrupted cruel", "precioPrenda": 4500, "stockTotalDePrenda": 550},
+    {"id": "2003", "nombrePrenda": "Disrupted cors3t", "precioPrenda": 4500, "stockTotalDePrenda": 550},
+    {"id": "2004", "nombrePrenda": "Disrupted street", "precioPrenda": 4500, "stockTotalDePrenda": 550},
+    {"id": "2005", "nombrePrenda": "Disrupted cow", "precioPrenda": 4500, "stockTotalDePrenda": 550},
 
     {"id": "3001", "nombrePrenda": "Blue lastic", "precioPrenda": 4500, "stockTotalDePrenda": 550},
     {"id": "3002", "nombrePrenda": "Blue fly", "precioPrenda": 4500, "stockTotalDePrenda": 550},

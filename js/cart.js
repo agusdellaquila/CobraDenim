@@ -4,13 +4,13 @@ let carrito = JSON.parse(getCarrito);
 let getArrayPrendas = localStorage.getItem('arrayStock');
 let arrayPrendas = JSON.parse(getArrayPrendas);
 
-let total = totalCartPrice(carrito);
 //---------Mostrar items en carro------
 showItemsOnCart(carrito);
 // //---------Mostrar burbuja en carro------
 amountItemsInCart(carrito);
 // //---------Mostrar precio total del carro------
 showTotalPrice(carrito);
+
 //------------------- funciones -------------------------
 //---------Main set of functions------
 function totalCartPrice(array) {
@@ -29,6 +29,17 @@ function applyDiscount() {
         newtotal = total - ((total * desc) / 100);
         let showTotalPrice = document.getElementById('productFinalPriceOnCart');
         showTotalPrice.innerHTML = newtotal;
+        Toastify({
+            text: "Valid code. Enjoy!",
+            duration: 1000,
+            style: {background: "linear-gradient(to right, #00b09b, #96c93d)",}
+        }).showToast();
+    } else {
+        Toastify({
+            text: "Invalid code",
+            duration: 1000,
+            style: {background: "#dc3545",}
+        }).showToast();
     }
 }  
 //---------Borrar carrito------
@@ -43,13 +54,8 @@ function clearCart(arrayCarro, arrayProd) {
             if (result.isConfirmed) {
                 confirmedDeleteCart(arrayCarro, arrayProd)
                 
-                let arrayStock = JSON.stringify(arrayProd);
-                localStorage.setItem('arrayStock', arrayStock);
-
                 arrayCarro = [];
-                let carrito = JSON.stringify(arrayCarro);
-                localStorage.setItem('carritoEnJson', carrito);
-                
+                toLocalStorage(arrayCarro, arrayProd);  
             } else {
                 Toastify({
                     text: "No items deleted",
@@ -76,6 +82,23 @@ function confirmedDeleteCart(arrayCarro, arrayProd) {
         style: {background: "#dc3545",}
     }).showToast();
 }
+function deleteItem(idToDelete) {
+    let itemToDelete = findProduct(carrito, idToDelete);
+    returnStockBack(arrayPrendas, idToDelete, itemToDelete.stockDePrendaEnCarro);
+
+    let index = carrito.indexOf(itemToDelete);
+    if (index > -1) {
+        carrito.splice(index, 1);
+    }
+
+    let deleteItemHtml = document.getElementById(idToDelete);
+    deleteItemHtml.remove();
+
+    toLocalStorage(carrito, arrayPrendas);
+
+    updateFinalPrice();
+    amountItemsInCart(carrito);
+}
 function returnStockBack(arrayProd, idToReturn, amountToReturn) {
     for (element of arrayProd) {
         if (element.id == idToReturn) {
@@ -96,7 +119,7 @@ function showItemsOnCart(array) {
     let elementoPadre = document.getElementById('checkoutListing');
     for (element of array) {
         let contenedor = document.createElement("div");
-        contenedor.innerHTML = `<div class="list-group">
+        contenedor.innerHTML = `<div class="list-group" id="`+element.id+`">
         <li id="cart-prodList" class="list-group-item d-flex justify-content-between lh-sm">
             <div>
                 <h6 class="productNameOnCart my-0"></h6>
@@ -104,6 +127,7 @@ function showItemsOnCart(array) {
             </div>
             <span class="productPriceOnCart text-muted"></span>
         </li>
+        <button onclick="deleteItem('`+(element.id)+`')">delete</button>
         </div>`;
         elementoPadre.appendChild(contenedor);
     }
@@ -139,9 +163,27 @@ function showTotalPrice(array) {
     </div>`
     elementoPadre.appendChild(contenedorFinalPrice);
 
+    updateFinalPrice();
+    amountItemsInCart(array);
+}
+function updateFinalPrice() {
     let showTotalPrice = document.getElementById('productFinalPriceOnCart');
     let showTotalAmount = document.getElementById('productFinalAmountOnCart');
     let total = totalCartPrice(carrito);
     showTotalPrice.innerHTML = total;
-    showTotalAmount.innerHTML = 'x' + array.length;
+
+    let bubbleTotal = 0;
+    carrito.forEach(item => {
+        bubbleTotal += item.stockDePrendaEnCarro
+    });
+
+    showTotalAmount.innerHTML = 'x' + bubbleTotal;
+}
+//---------Local storage------
+function toLocalStorage(arrayCarro, arrayProd) {
+    let arrayStock = JSON.stringify(arrayProd);
+    localStorage.setItem('arrayStock', arrayStock);
+
+    let carrito = JSON.stringify(arrayCarro);
+    localStorage.setItem('carritoEnJson', carrito);
 }
