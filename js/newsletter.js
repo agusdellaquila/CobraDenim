@@ -1,10 +1,7 @@
-function saveEmail() {
-    //let newsletter = localStorage.getItem('email') || "";
-
-    //if (newsletter == "") {
+function saveEmail() {    
     let newsletterInput = document.getElementById('newsletter1').value;
 
-    if (newsletterInput == '') {
+    if ((newsletterInput == '') || (newsletterInput.indexOf("@") == -1) || (newsletterInput.toLowerCase().indexOf(".com") == -1)) {
         Toastify({
             text: "Error, Check your email and try again",
             duration: 2000,
@@ -21,15 +18,6 @@ function saveEmail() {
             style: {background: "linear-gradient(to right, #00b09b, #96c93d)",}
         }).showToast();
     }
-    
-        //localStorage.setItem('email', newsletterInput);
-    //} else {
-    //     Toastify({
-    //         text: "Email already submitted",
-    //         duration: 2000,
-    //         style: {background: "#dc3545",}
-    //     }).showToast();
-    // }
 
 }
 

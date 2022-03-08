@@ -187,7 +187,7 @@
                 <img src="../img/GreenAesthetic/AcidNFT.jpg" class="img-fluid" alt="cobra club banner">
             </div>
 
-            <p class="benDisclaimer pt-5 px-2 textoVerde centrado">*If you are a $cobra holder, you automatically become an official Cobra Club member!</p>
+            <p class="benDisclaimer pt-5 px-2 textoVerdeOscuro centrado">*If you are a $cobra holder, you automatically become an official Cobra Club member!</p>
             
             <div class="d-flex my-4">
                 <div class="bgInfoBenefits noBackRepeat">
@@ -218,14 +218,14 @@
                         <div class="card mb-5 mb-lg-0">
                             <div class="card-body cobraClubCards">
                             <p class="card-title fw-bold text-uppercase text-center">Cobra Club Pro</p>
-                            <p class="card-price text-center">$9.99<span class="period">/month</span></p>
+                            <p class="card-price text-center">$9<span class="period">/month</span></p>
                             <div class="lineaDivision"></div>
                             <ul class="fa-ul">
                                 <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Free shipping</strong></li>
                                 <li><span class="fa-li"><i class="fas fa-check"></i></span>Discounts on selected products</li>
                             </ul>
                             <div class="d-grid">
-                                <a href="#" class="btn btn-primary fw-bold">Join Cobra Club Pro</a>
+                                <button class="btn btn-primary fw-bold" onclick="addSubscription('pro')">Join Cobra Club Pro</button>
                             </div>
                             </div>
                         </div>
@@ -234,7 +234,7 @@
                         <div class="card">
                             <div class="card-body cobraClubCards">
                             <p class="card-title fw-bold text-uppercase text-center">Cobra Club Investor</p>
-                            <p class="card-price text-center">$24.99<span class="period">/month</span></p>
+                            <p class="card-price text-center">$24<span class="period">/month</span></p>
                             <div class="lineaDivision"></div>
                             <ul class="fa-ul">
                                 <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Includes Cobra Club Pro</strong>
@@ -243,7 +243,7 @@
                                 <li><span class="fa-li"><i class="fas fa-check"></i></span>Monthly entrance to an exclusive NFT giveaway</li>
                             </ul>
                             <div class="d-grid">
-                                <a href="#" class="btn btn-primary fw-bold">Join Cobra Club Investor</a>
+                                <button class="btn btn-primary fw-bold" onclick="addSubscription('inv')">Join Cobra Club Investor</button>
                             </div>
                             </div>
                         </div>
@@ -254,6 +254,8 @@
             <section>
                 <div class="lineaDivision"></div>
                 <p class="nftText centrado pt-4">NFTs</p>
+                <p class="centrado textoVerde">With CobraClub you will have access to an exclusive monthly NFT giveaway</p>
+                <p class="centrado">👇 These are some of our most valued ones 👇</p>
                 <div class="nftsContainer noBackRepeat">
                     <div class="d-flex">
                         <div><img src="../img/cobraClub-Img/nfts/nft1.png" alt="nft img"></div>
@@ -295,7 +297,7 @@
         
         <div class="btnTOP">
             <a href="#top">
-                <span class="textoVerde">TOP</span>
+                <span class="textoVerdeOscuro">TOP</span>
             </a>
         </div>
 
@@ -303,22 +305,19 @@
             <section class="py-5">
                 <div class="newsInfo">
                     <div class="newsletter centrado">
-                        <form class="news">
-                            <p class="py-2 px-3 fs-1 fw-bold">NEWSLETTER</p>
-                            <div class="d-flex flex-column w-100 gap-2">
-                                <label for="newsletter1" class="visually-hidden">Email address</label>
-                                <input id="newsletter1" type="text" class="form-control coloresInput newsEmail" placeholder="*Your email" placeholder="a">
-                                <button class="btn btn-primary coloresBoton fw-bold column" type="button" onclick="saveEmail()">Subscribe</button>
-                            </div>
-                        </form>
+                        <p class="py-2 px-3 fs-1 fw-bold">NEWSLETTER</p>
+                        <div class="d-flex flex-column w-100 gap-2">
+                            <label for="newsletter1" class="visually-hidden">Email address</label>
+                            <input id="newsletter1" type="text" class="form-control coloresInput newsEmail" placeholder="*Your email" placeholder="a">
+                            <button class="btn btn-primary fw-bold column" type="button" onclick="saveEmail()">Subscribe</button>
+                        </div>
                     </div>
                     <div class="footerStory centrado">
                         <div class="footerTxt">
-                            <p class="fs-4 textoVerde">REWIND TO 2001.</p>
+                            <p class="fs-4 textoVerdeOscuro">REWIND TO 2001.</p>
                             <p class="footerParrafo mb-5">You have your Cobra Denim® jacket on. You’re ready to get your yearbook picture taken and you will go down in history as the coolest kid on the block. You know that "when you put it on… something happens." You’re not aware of it yet, but what you’re wearing is the jacket that epitomizes the glamour, energy, and fun-loving attitude of the '80s.</p>
-                            <p class="fs-4 textoVerde">FAST FORWARD FORTY YEARS.</p>
+                            <p class="fs-4 textoVerdeOscuro">FAST FORWARD FORTY YEARS.</p>
                             <p class="footerParrafo">Cobra Denim® is now a cultural icon with a steady and growing following – thanks to you, our loyal fans. Whether you knew us from the '00s and love us now for our slimmer modern look with all the signature details, or are rocking our jackets because it’s just simply… cool, our loyalty lies with you. We see race, creed, and taste not as separation but as inspiration. Dear upright citizen of the world, thank you for including us in your world. We are proud to have you as a member.</p>
-                            <img src="../img/GreenAesthetic/smoke.jpg" alt="footer img">
                         </div>
                     </div>
                 </div>
@@ -333,6 +332,8 @@
     </footer>
     <!-- Js -->
     <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <!--js cart-->
+    <script src="../js/cobraClub.js"></script>
     <!--Newsletter-->
     <script src="../js/newsletter.js"></script>
     <!--toastify js-->

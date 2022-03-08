@@ -19,9 +19,10 @@ class PrendaEnCarro {
 }
 //-----------declaro array de prendas--------------------
 let arrayPrendas = [];
-importarProductos().then(val => arrayPrendas = val);
+importarProductos().then(val => arrayPrendas = val).then((arrayPrendas) => productNamesAndPrices(arrayPrendas));
 //-----------declaro array de carrito--------------------
 let carrito = JSON.parse(localStorage.getItem('carritoEnJson')) || [];
+
 //------------------- funciones -------------------------
 //--------- logic caller ------------
 function btnToCart(idProducto) {
@@ -97,3 +98,14 @@ async function importarProductos () {
 
     return arrayPrendas
 } 
+//show prices
+function productNamesAndPrices(arrayPrendas) {
+    let arrayShowNames = document.getElementsByClassName('productNames');
+    let arrayShowPrices = document.getElementsByClassName('productPrices');
+    let i = 0;
+    for (item of arrayPrendas) {
+        arrayShowPrices[i].innerHTML = '$' + item.precioPrenda;
+        arrayShowNames[i].innerHTML = item.nombrePrenda;
+        i++; 
+    };
+}

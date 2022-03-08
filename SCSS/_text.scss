@@ -7,6 +7,18 @@
     color: $main-color-green;
 }
 
+.textoVerdeOscuro {
+    color: #acbd32;
+}
+
+.textoVerdeOscuroLink {
+    color: #acbd32;
+}
+
+.textoVerdeOscuroLink:hover{
+    color: #798525;
+}
+
 .subrayadoVerde {
     text-decoration: underline;
     text-decoration-color: $main-color-green;

@@ -15,6 +15,10 @@ html {
     scroll-behavior: smooth;
 }
 
+main {
+    padding-top: 75px;
+}
+
 /*__________________INDEX____________________*/
 .mainInicio {
     display: flex;
@@ -184,6 +188,19 @@ html {
 }
 
 /*__________________pag PRODUCTOS____________________*/
+.addToCartBtn {
+    width: 50px !important;
+    height: 30px !important;
+    margin: 0;
+}
+
+.addToCartBtnBackground {
+    margin: 0;
+    padding: 0;
+    height: 0px;   
+    width: 200px;
+}
+
 .gridDestacados {
     display: grid;
     grid-template-columns: 1fr;
@@ -231,6 +248,11 @@ html {
 
 .galeriaProductos {
     flex-wrap: wrap;
+}
+
+.galeriaProductos div{
+    flex-wrap: wrap;
+    margin: 0px 10px 0px 0px;
 }
 
 .galeriaProductos a {
@@ -379,6 +401,25 @@ html {
 
 .staffName {
     margin-bottom: 20px;
+}
+
+/*__________________pag CHECKOUT`____________________*/
+.emptyMsg {
+    color: black;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.deleteIndiviudalItem:hover {
+    cursor: pointer;
+}
+
+#promocodeInput {
+    border-radius: 5px 0px 0px 5px;
+}
+
+.promoCodeSubmit {
+    border-radius: 0px 5px 5px 0px;
 }
 
 /*-------SINTAXIS scss---------*/

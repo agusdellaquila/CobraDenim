@@ -12,6 +12,10 @@
         margin-left: 14vw; /*13.02vw*/
     }
 
+    main {
+        padding-top: 0px;
+    }
+
     /*__________________header____________________*/
     .checkoutBag {
         margin-left: 20px;
@@ -133,18 +137,10 @@
         height: 15.625rem;
     }
 
-    .gridDestacados img:hover {
-        transform: scale(1.05, 1.05);
-    }
-
     .galeriaProductos img {
         width: 200px;
         height: 250px;
         margin: 5px 5px;
-    }
-
-    .galeriaProductos img:hover {
-        transform: scale(1.05, 1.05);
     }
     
     /*__________________pag TALLES____________________*/
